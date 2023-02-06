@@ -8,14 +8,14 @@ export function useContextProvider() {
 
 
 function Provider({children}) {
-    const [darkmode, setDarkMode] = useState(false)
+    const [darkMode, setDarkMode] = useState(false)
     const [navbar, setNavBar] = useState(false)
 
 
     return (
-    <div className= {darkmode ? "dark" : "App"}>
+    <div className= {darkMode ? "dark" : "App"}>
        <ContextData.Provider value = {{
-        darkmode,
+        darkMode,
         setDarkMode,
         navbar,
         setNavBar,
