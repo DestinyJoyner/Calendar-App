@@ -4,15 +4,13 @@ import "./Nav.css"
 
 function Nav() {
     const {navbar, setNavBar, darkMode, setDarkMode} = useContextProvider()
-console.log(darkMode)
-
 
     return (
         <div className="nav">
             <button onClick={() => setNavBar(!navbar)}>
-                <hr />
-                <hr />
-                <hr />
+                <hr className="nav-hr" />
+                <hr className="nav-hr" />
+                <hr className="nav-hr" />
             </button> 
             {
                 navbar && 
@@ -27,7 +25,7 @@ console.log(darkMode)
                 </span>
                 <span>
                     <Link to ="/">HOME </Link>
-                    
+                    <hr className="white-line" />
                 </span> 
              {/* darkmode switch */}
              <label 
