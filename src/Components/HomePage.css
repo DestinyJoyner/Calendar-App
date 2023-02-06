@@ -1,0 +1,9 @@
+.home {
+
+}
+
+.background-image {
+    background-image: url("/public/pern-background-livingroom.png");
+    background-position: bottom;
+    background-size: cover;
+}
