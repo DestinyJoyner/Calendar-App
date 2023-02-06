@@ -1,7 +1,7 @@
 .nav {
     position: fixed;
-    top: 80px;
-    right: 10px;
+    top: 90px;
+    right: 15px;
     z-index: 500;
 
 }
@@ -44,9 +44,9 @@
     align-items: center;
     border: 1px solid white;
     box-shadow:  
-    0 0 0.1vw 0.4vw #e0f7fa,
+    0 0 0.1vw 0.4vw #F9FBFF,
     0 0 0.4vw 0.6vw #fff,
-    0 0 1vw 0.7vw #df8816;
+    0 0 1vw 0.7vw #F9FBFF;
     background-color: rgba(0, 0, 0, 0.734);
 }
 

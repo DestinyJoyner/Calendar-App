@@ -1,0 +1,25 @@
+.about {
+    background-image: url("/public/pern-background-livingroom.png");
+    background-position: bottom;
+    background-size: cover;
+}
+
+.about-info {
+    box-shadow:  
+    0 0 0.1vw 0.4vw #F9FBFF,
+    0 0 0.4vw 0.6vw #fff,
+    0 0 1vw 0.7vw #F9FBFF;
+    position: relative;
+    top: 30%;
+    left: 32%;
+    width: 40%;
+    padding: 3%;
+    background-color: rgba(105, 105, 105, 0.677);
+    color:  #F9FBFF;
+    /* text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff; */
+    font-family: 'Lato', sans-serif;   
+    font-size: large;
+    line-height: 30px;
+}

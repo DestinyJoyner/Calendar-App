@@ -5,7 +5,7 @@ function HomePage() {
 
     return (
         <div className="home">
-            <div className="background-image"></div>
+           
         </div>
     );
 }
