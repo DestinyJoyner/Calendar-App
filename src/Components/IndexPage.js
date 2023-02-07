@@ -38,9 +38,13 @@ function IndexPage() {
 
 //   next/last month 
 function nextMonth () {
-    console.log(toggleMonth)
     setToggleMonth(toggleMonth +1)
     setMonthName(monthArr[toggleMonth])
+}
+function previousMonth() {
+    console.log(toggleMonth)
+    setToggleMonth(toggleMonth -1)
+    setMonthName(monthArr[toggleMonth -2])
 }
 
 
@@ -50,8 +54,9 @@ function nextMonth () {
       <div className="calendar">
         <h1>{toggleMonthName}{" "}{year}</h1>
         <section className="calendar-buttons">
-            <button
-            onClick={() => nextMonth()}>next</button>
+            <button onClick={() => previousMonth()}>Previous</button>
+            <button onClick={() => nextMonth()}>next</button>
+            
         </section>
 
         {/* set first index value with style for grid column start -> all others will follow */}
