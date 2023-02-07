@@ -12,6 +12,7 @@ function RouteComponent() {
             <Route path = "/">
                 <Route index element = {<Home />} />
                 <Route path = "about" element = {<About />} />
+                <Route path = "index" element = {<Index />} />
             </Route>
         </Routes>
     );

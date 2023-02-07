@@ -1,0 +1,16 @@
+  
+.calendar {
+    position: relative;
+    top: 20%;
+    width: 60%;
+    height: 50%;
+    margin:0 auto;
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+}
+
+.calendar h1 {
+    grid-column: span 7;
+    justify-self: center;
+    margin-top: 0;
+}
