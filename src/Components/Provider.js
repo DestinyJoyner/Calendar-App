@@ -1,5 +1,7 @@
 import { useContext, createContext, useState } from "react";
+import axios from "axios";
 import Nav from "./Nav";
+import Login from "../Login/Login";
 
 export const ContextData = createContext()
 export function useContextProvider() {
@@ -7,6 +9,8 @@ export function useContextProvider() {
 }
 
 function Provider({children}) {
+    const API = process.env.REACT_APP_API_URL
+
      const daysOfWeek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
      const monthArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
      const date = new Date()
@@ -21,11 +25,18 @@ function Provider({children}) {
         month: date.getMonth() + 1,
         year: date.getFullYear()
     })
-   
 
+    // state for user Login
+    const [token, setToken] = useState(false)
+   
+    if(!token){
+        return <Login setUser = {setToken} />
+    }
     return (
     <div className= {darkMode ? "dark" : "App"}>
        <ContextData.Provider value = {{
+        API,
+        axios,
         darkMode,
         setDarkMode,
         navbar,
@@ -34,6 +45,7 @@ function Provider({children}) {
         monthArr,
         todaysDate, 
         setTodaysDate,
+
        }}>
         <Nav />
 
