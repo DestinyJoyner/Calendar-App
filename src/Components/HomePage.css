@@ -2,3 +2,10 @@
 
 }
 
+.calendar {
+    width: 60%;
+    margin:0 auto;
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+
+}
