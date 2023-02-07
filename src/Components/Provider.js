@@ -16,8 +16,9 @@ function Provider({children}) {
     // declare state to hold obj with values of today's date
     const [todaysDate, setTodaysDate] = useState({
         day: date.getDate(),
-        dow: daysOfWeek[date.getMonth() + 1],
-        month: date.toLocaleString('default', {month: 'long'}),
+        dow: daysOfWeek[date.getDay()],
+        monthName: date.toLocaleString('default', {month: 'long'}),
+        month: date.getMonth() + 1,
         year: date.getFullYear()
     })
    

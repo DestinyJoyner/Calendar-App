@@ -3,9 +3,9 @@ import "./IndexPage.css";
 
 function IndexPage() {
   const { daysOfWeek, todaysDate } = useContextProvider()
-  const { day, dow, month, year } = todaysDate
+  const { day, dow, month, monthName, year } = todaysDate
   let gridColStart;
-    // console.log(todaysDate)
+    console.log(day)
   // function returns array of obj [{dayofWeek: "", date: ""}] -> for month and year passed as args.
   function daysInMonth(month, year) {
     // Use 1 for January, 2 for February, etc.
@@ -29,25 +29,41 @@ function IndexPage() {
     return daysObjArr;
   }
 
-  const calendarArr = daysInMonth(2, 2023);
-//   console.log(calendarArr, gridColStart);
+  const calendarArr = daysInMonth(month, year);
+
+// alt month/year values for testing 
+// const calendarArr = daysInMonth(6, 2023)
+
 
   return (
     <div className="index">
         
       <div className="calendar">
-        <h1>{month}{" "}{year}</h1>
+        <h1>{monthName}{" "}{year}</h1>
         {/* set first index value with style for grid column start -> all others will follow */}
         {daysOfWeek.map((el, i) => (
           <span key={i} className={el}>
             {el}
           </span>
         ))}
-        {calendarArr.map((day, i) => (
-          <div style={i === 0 ? { gridColumnStart: gridColStart } : {}}>
-            {day.date}
-          </div>
-        ))}
+        {calendarArr.map((el, i) => {
+            if(i===0){
+                return <div
+                className="calendar-cell" 
+                style={{ gridColumnStart: gridColStart }}>
+                {el.date}
+              </div>
+            }
+            else if(el.date === +day){
+               return <div 
+               className="calendar-cell"
+               style={{backgroundColor: "blue"}}>{el.date}</div>
+            }
+            else {
+                return <div className="calendar-cell">{el.date}</div>
+            }
+    
+        })}
       </div>
     </div>
   );
