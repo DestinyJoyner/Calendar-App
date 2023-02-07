@@ -1,11 +1,13 @@
+import { useState } from "react";
 import { useContextProvider } from "./Provider";
 import "./IndexPage.css";
 
 function IndexPage() {
-  const { daysOfWeek, todaysDate } = useContextProvider()
+  const { daysOfWeek, monthArr, todaysDate } = useContextProvider()
   const { day, dow, month, monthName, year } = todaysDate
+  const [toggleMonth, setToggleMonth] = useState(month)
+  const [toggleMonthName, setMonthName] = useState(monthArr[month-1])
   let gridColStart;
-    console.log(day)
   // function returns array of obj [{dayofWeek: "", date: ""}] -> for month and year passed as args.
   function daysInMonth(month, year) {
     // Use 1 for January, 2 for February, etc.
@@ -29,17 +31,29 @@ function IndexPage() {
     return daysObjArr;
   }
 
-  const calendarArr = daysInMonth(month, year);
+  const calendarArr = daysInMonth(toggleMonth, year);
 
 // alt month/year values for testing 
 // const calendarArr = daysInMonth(6, 2023)
+
+//   next/last month 
+function nextMonth () {
+    console.log(toggleMonth)
+    setToggleMonth(toggleMonth +1)
+    setMonthName(monthArr[toggleMonth])
+}
 
 
   return (
     <div className="index">
         
       <div className="calendar">
-        <h1>{monthName}{" "}{year}</h1>
+        <h1>{toggleMonthName}{" "}{year}</h1>
+        <section className="calendar-buttons">
+            <button
+            onClick={() => nextMonth()}>next</button>
+        </section>
+
         {/* set first index value with style for grid column start -> all others will follow */}
         {daysOfWeek.map((el, i) => (
           <span key={i} className={el}>
@@ -51,18 +65,21 @@ function IndexPage() {
                 return <div
                 className="calendar-cell" 
                 style={{ gridColumnStart: gridColStart }}>
-                {el.date}
-              </div>
+                    <span>{el.date}</span>
+                </div>
             }
             else if(el.date === +day){
                return <div 
                className="calendar-cell"
-               style={{backgroundColor: "blue"}}>{el.date}</div>
+               >
+                    <span style={{backgroundColor: "blue"}}>{el.date}</span>
+                </div>
             }
             else {
-                return <div className="calendar-cell">{el.date}</div>
+                return <div className="calendar-cell">
+                        <span>{el.date}</span>
+                        </div>
             }
-    
         })}
       </div>
     </div>

@@ -7,8 +7,8 @@ export function useContextProvider() {
 }
 
 function Provider({children}) {
-     // array for seven days of week
-     const daysOfWeek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+     const daysOfWeek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
+     const monthArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
      const date = new Date()
 
     const [darkMode, setDarkMode] = useState(false)
@@ -31,6 +31,7 @@ function Provider({children}) {
         navbar,
         setNavBar,
         daysOfWeek,
+        monthArr,
         todaysDate, 
         setTodaysDate,
        }}>

@@ -24,7 +24,7 @@ function Nav() {
                     <hr className="white-line" />
                 </span>
                 <span>
-                    <Link to ="/">HOME </Link>
+                    <Link to ="/index">INDEX </Link>
                     <hr className="white-line" />
                 </span> 
              {/* darkmode switch */}

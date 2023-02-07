@@ -14,3 +14,7 @@
     justify-self: center;
     margin-top: 0;
 }
+
+.calendar-buttons{
+    grid-column: span 7;
+}
