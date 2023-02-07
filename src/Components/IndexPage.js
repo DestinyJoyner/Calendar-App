@@ -38,13 +38,15 @@ function IndexPage() {
 
 //   next/last month 
 function nextMonth () {
-    setToggleMonth(toggleMonth +1)
-    setMonthName(monthArr[toggleMonth])
+    const newMonth = toggleMonth +1
+    console.log(newMonth)
+    // setToggleMonth(newMonth)
+    // setMonthName(monthArr[newMonth])
 }
 function previousMonth() {
     console.log(toggleMonth)
-    setToggleMonth(toggleMonth -1)
-    setMonthName(monthArr[toggleMonth -2])
+    // setToggleMonth(toggleMonth)
+    // setMonthName(monthArr[toggleMonth -2])
 }
 
 
