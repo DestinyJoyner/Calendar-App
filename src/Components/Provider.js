@@ -1,7 +1,7 @@
-import { useContext, createContext, useState } from "react";
+import { useContext, createContext, useState, useEffect } from "react";
 import axios from "axios";
 import Nav from "./Nav";
-import Login from "../Login/Login";
+
 
 export const ContextData = createContext()
 export function useContextProvider() {
@@ -28,10 +28,16 @@ function Provider({children}) {
 
     // state for user Login
     const [token, setToken] = useState(false)
+    // state to hold user access if successful login
+    const [user, setUser] = useState({})
+
+    // useEffect to check current session of user still active i.e token = true
+    useEffect(() => {
+        const isToken = window.localStorage.getItem('token')
+        setToken(isToken)
+    }, [])
    
-    if(!token){
-        return <Login setUser = {setToken} />
-    }
+
     return (
     <div className= {darkMode ? "dark" : "App"}>
        <ContextData.Provider value = {{
@@ -45,6 +51,10 @@ function Provider({children}) {
         monthArr,
         todaysDate, 
         setTodaysDate,
+        token,
+        setToken,
+        user,
+        setUser,
 
        }}>
         <Nav />

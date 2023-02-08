@@ -1,46 +1,71 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-const API = process.env.REACT_APP_API_URL
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useContextProvider } from "../Components/Provider";
+import UserForm from "../ReusableComponents/UserForm";
+import "./Login.css"
 
-function Login({setToken}) {
-    const [userName, setUserName] = useState("")
-    const [password, setPassword] = useState("")
+function Login() {
+  const { API, axios, token, setToken, setUser } = useContextProvider();
 
+  const [userName, setUserName] = useState("");
+  const [passValue, setPassValue] = useState("");
+  // declare state for which submit button was pressed
+  const [button, setButton] = useState("");
+  const navigate = useNavigate();
 
-    //function for adding user
-   async function signIn(e) {
-    e.preventDefault()
-    const tokenValue = await axios.post(`${API}/login`, {
-            user: userName,
-            passwordVal: password
+  //function for adding/ registering user
+  async function signIn(e) {
+    e.preventDefault();
+    if (button === "login") {
+      const tokenValue = await axios
+        .post(`${API}/login`, {
+          userName: userName,
+          password: passValue,
         })
-        .then(({data}) => setToken(data))
-        .catch(err => console.log(err))
+        .then(({ data }) => {
+          setUser(data);
+          setToken(data.token);
+          window.localStorage.setItem("token", data.token);
+          navigate("/index");
+        })
+        .catch((err) => {
+          alert(err.response.data)
+          setUserName("")
+          setPassValue("")
+        });
     }
-
+    if (button === "register") {
+      const tokenValue = await axios
+        .post(`${API}/register`, {
+          userName: userName,
+          password: passValue,
+        })
+        .then(({ data }) => {
+          setUser(data);
+          setToken(data.token);
+          window.localStorage.setItem("token", data.token);
+          navigate("/index")
+        })
+        .catch((err) => {
+          alert(err.response.data)
+          setUserName("")
+          setPassValue("")
+        })
+    }
+  }
 
   return (
     <div className="login">
-        <h2>Login</h2>
-    <form onSubmit={(event) => signIn(event)}>
-      <label>
-        <p>Username</p>
-        <input 
-        type="text"
-        value = {userName}
-        onChange ={(event) => setUserName(event.target.value)} />
-      </label>
-      <label>
-        <p>Password</p>
-        <input 
-        type="password"
-        value = {password}
-        onChange ={(event) => setPassword(event.target.value)} />
-      </label>
-      <div>
-        <button type="submit">Submit</button>
-      </div>
-    </form>
+      <h2>Login</h2>
+
+      <UserForm
+        stateVar1={userName}
+        stateVar2={passValue}
+        setFunction1={setUserName}
+        setFunction2={setPassValue}
+        submitFunction={signIn}
+        setButton={setButton}
+      />
     </div>
   );
 }
