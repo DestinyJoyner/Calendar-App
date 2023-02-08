@@ -1,0 +1,60 @@
+.login {
+    color: #F9FBFF;
+    font-size: 20px;
+    width: 75%;
+    height: 50vh;
+    margin: 200px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: .2fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+ .login h2 {
+    grid-row: 1;
+    grid-column: span 2;
+    height: fit-content;
+    font-size: 40px;
+ }
+
+ .login form {
+    grid-row: 2;
+    grid-column: span 2;
+    width: 80%;
+    height: 30vh;
+    display: grid;
+    align-items: center;
+ }
+
+.login form label, .login form div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.login form label input {
+    width: 30%;
+    height: 20px;
+}
+
+.login form div button {
+    height: 50px;
+    width: 30%;
+    color: #F9FBFF;
+    font-size: 18px;
+}
+
+.login form div button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    border: 5px solid orange;
+}
+
+.login, .login form, .login form div button {
+    border: 1px solid white;
+    box-shadow:  
+    0 0 0.1vw 0.4vw #F9FBFF,
+    0 0 0.4vw 0.6vw #fff,
+    0 0 1vw 0.7vw #F9FBFF;
+    background-color: rgba(0, 0, 0, 0.734);
+}

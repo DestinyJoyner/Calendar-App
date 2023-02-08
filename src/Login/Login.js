@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContextProvider } from "../Components/Provider";
 import UserForm from "../ReusableComponents/UserForm";
+import "./Login.css"
 
 function Login() {
   const { API, axios, token, setToken, setUser } = useContextProvider();
