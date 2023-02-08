@@ -50,7 +50,7 @@ function previousMonth() {
     // setMonthName(monthArr[toggleMonth -2])
 }
 
-if(!token){
+if(!token.userId){
   return <Login />
 }
 

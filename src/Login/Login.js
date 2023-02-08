@@ -23,9 +23,12 @@ function Login() {
           password: passValue,
         })
         .then(({ data }) => {
-          setUser(data);
-          setToken(data.token);
-          window.localStorage.setItem("token", data.token);
+          setToken(data);
+          window.localStorage.setItem("token", JSON.stringify({
+            token: data.token,
+            userId: data.id,
+            userName: data.userName
+          }));
           navigate("/index");
         })
         .catch((err) => {
@@ -41,9 +44,13 @@ function Login() {
           password: passValue,
         })
         .then(({ data }) => {
-          setUser(data);
-          setToken(data.token);
-          window.localStorage.setItem("token", data.token);
+          console.log(data)
+          setToken(data);
+          window.localStorage.setItem("token", JSON.stringify({
+            token: data.token,
+            userId: data.id,
+            userName: data.userName
+          }));
           navigate("/index")
         })
         .catch((err) => {

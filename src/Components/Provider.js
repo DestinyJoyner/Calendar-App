@@ -27,14 +27,20 @@ function Provider({children}) {
     })
 
     // state for user Login
-    const [token, setToken] = useState("")
+    const [token, setToken] = useState({})
     // state to hold user access if successful login
-    const [user, setUser] = useState()
+    const [userSchedule, setUserSchedule] = useState()
 
     // useEffect to check current session of user still active i.e token = true
     useEffect(() => {
-        const isToken = window.localStorage.getItem('token')
-        setToken(isToken)
+        const isToken = JSON.parse(window.localStorage.getItem('token'))
+        
+        if(JSON.parse(window.localStorage.getItem('token'))){
+            setToken(isToken)
+            axios.get(`${API}/schedule/${isToken.userId}?user=${isToken.userName}&credentials=${isToken.token}`)
+            .then(({data}) => setUserSchedule(data))
+            .catch(err => console.log(err))
+        }
     }, [])
    
 
@@ -53,8 +59,8 @@ function Provider({children}) {
         setTodaysDate,
         token,
         setToken,
-        user,
-        setUser,
+        userSchedule,
+        setUserSchedule,
 
        }}>
         <Nav />
