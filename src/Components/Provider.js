@@ -28,10 +28,10 @@ function Provider({children}) {
 
     // state for user Login
     const [token, setToken] = useState(false)
+    // state to hold user access if successful login
+    const [user, setUser] = useState({})
    
-    if(!token){
-        return <Login setUser = {setToken} />
-    }
+
     return (
     <div className= {darkMode ? "dark" : "App"}>
        <ContextData.Provider value = {{
@@ -45,6 +45,10 @@ function Provider({children}) {
         monthArr,
         todaysDate, 
         setTodaysDate,
+        token,
+        setToken,
+        user,
+        setUser,
 
        }}>
         <Nav />

@@ -1,20 +1,26 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-const API = process.env.REACT_APP_API_URL
+import { useContextProvider } from "../Components/Provider";
 
-function Login({setToken}) {
+
+function Login() {
+  const {API, axios, token, setToken, setUser} = useContextProvider()
+  
     const [userName, setUserName] = useState("")
-    const [password, setPassword] = useState("")
+    const [passValue, setPassValue] = useState("")
 
 
     //function for adding user
    async function signIn(e) {
     e.preventDefault()
     const tokenValue = await axios.post(`${API}/login`, {
-            user: userName,
-            passwordVal: password
+            userName: userName,
+            password: passValue
         })
-        .then(({data}) => setToken(data))
+        .then(({data}) => {
+          setUser(data)
+          setToken(data.token)
+          window.localStorage.setItem('token', data.token)
+        })
         .catch(err => console.log(err))
     }
 
@@ -34,8 +40,8 @@ function Login({setToken}) {
         <p>Password</p>
         <input 
         type="password"
-        value = {password}
-        onChange ={(event) => setPassword(event.target.value)} />
+        value = {passValue}
+        onChange ={(event) => setPassValue(event.target.value)} />
       </label>
       <div>
         <button type="submit">Submit</button>

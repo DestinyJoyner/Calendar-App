@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useContextProvider } from "./Provider";
+import Login from "../Login/Login";
 import "./IndexPage.css";
 
 function IndexPage() {
-  const { daysOfWeek, monthArr, todaysDate } = useContextProvider()
+  const { daysOfWeek, monthArr, todaysDate, token } = useContextProvider()
   const { day, dow, month, monthName, year } = todaysDate
   const [toggleMonth, setToggleMonth] = useState(month)
   const [toggleMonthName, setMonthName] = useState(monthArr[month-1])
@@ -47,6 +48,10 @@ function previousMonth() {
     console.log(toggleMonth)
     // setToggleMonth(toggleMonth)
     // setMonthName(monthArr[toggleMonth -2])
+}
+
+if(!token){
+  return <Login />
 }
 
 
