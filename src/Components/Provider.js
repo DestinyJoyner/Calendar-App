@@ -27,9 +27,9 @@ function Provider({children}) {
     })
 
     // state for user Login
-    const [token, setToken] = useState(false)
+    const [token, setToken] = useState("")
     // state to hold user access if successful login
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState()
 
     // useEffect to check current session of user still active i.e token = true
     useEffect(() => {
