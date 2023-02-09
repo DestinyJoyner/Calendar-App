@@ -2,56 +2,7 @@
     display: grid;
     grid-template-columns: 40% 15% 30% 15%;
     font-family: PoiretOne;
-    
  } 
-.calendar {
-    grid-column: 3;
-    grid-row: 2;
-    justify-self: center;
-    width: 90%;
-    height: 100%;
-    margin:0 auto;
-    display: grid;
-    grid-template-columns: repeat(7,1fr);
-    grid-template-rows: .22fr .15fr auto;
-}
-
-.calendar h1 {
-    grid-column: span 7;
-    justify-self: center;
-    text-decoration: underline;
-    height: fit-content;
-}
-
-.calendar-week {
-    height: fit-content;
-}
-
-.calendar-buttons{
-    grid-column: span 7;
-}
-
-.calendar-cell {
-    border: 1px solid #FDFEFF;
-    display: grid;
-    align-items: center;
-    background-color: #fdfeff7d;
-}
-.calendar-cell.today {
-    background-color: rgba(0, 0, 0, 0.718);
-    border: 3px solid aqua;
-}
-.calendar-cell.today span {
-    color: #FDFEFF ;
-}
-
-.calendar-cell span {
-    font-size: 20px;
-    text-align: center;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-}
 
 .home .home-title {
     grid-column: 1;
