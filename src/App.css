@@ -2,7 +2,7 @@
     margin: 0;
 }
 
-.App, .dark, .about, .index{
+.App, .dark, .about, .home{
     position:fixed;
     left: 0;
     top: 0;
@@ -16,4 +16,15 @@
 
 .dark {
     background-color: rgb(6, 6, 47);
+    color:  #FDFEFF;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 4px #fff;
+        /* 0 0 21px #fff,
+        0 0 42px #fff; */
+        /* 0 0 82px #fff,
+        0 0 92px #fff,
+        0 0 102px #fff,
+        0 0 151px #fff;  */
+        letter-spacing: 2px;
 }

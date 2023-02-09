@@ -7,7 +7,7 @@ import "./Login.css"
 // testing tokens and headers 
 
 
-function Login() {
+function Login({width, height}) {
   const { API, axios, setUserAccess, setUser } = useContextProvider();
 
   const [userName, setUserName] = useState("");
@@ -67,8 +67,9 @@ function Login() {
   }
 
   return (
-    <div className="login">
-      <h2>Login</h2>
+    <div className="login"
+    style={{height:height, width:width}}>
+      {/* <h2>Login</h2> */}
 
       <UserForm
         stateVar1={userName}
