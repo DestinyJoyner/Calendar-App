@@ -4,7 +4,7 @@ import Login from "../Login/Login";
 import "./IndexPage.css";
 
 function IndexPage() {
-  const { daysOfWeek, monthArr, todaysDate, token } = useContextProvider()
+  const { daysOfWeek, monthArr, todaysDate, userAccess, userSchedule, setUserSchedule } = useContextProvider()
   const { day, dow, month, monthName, year } = todaysDate
   const [toggleMonth, setToggleMonth] = useState(month)
   const [toggleMonthName, setMonthName] = useState(monthArr[month-1])
@@ -50,7 +50,7 @@ function previousMonth() {
     // setMonthName(monthArr[toggleMonth -2])
 }
 
-if(!token.id){
+if(!userAccess){
   return <Login />
 }
 

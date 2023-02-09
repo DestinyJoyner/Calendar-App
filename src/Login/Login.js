@@ -4,8 +4,11 @@ import { useContextProvider } from "../Components/Provider";
 import UserForm from "../ReusableComponents/UserForm";
 import "./Login.css"
 
+// testing tokens and headers 
+
+
 function Login() {
-  const { API, axios, token, setToken, setUser } = useContextProvider();
+  const { API, axios, setUserAccess, setUser } = useContextProvider();
 
   const [userName, setUserName] = useState("");
   const [passValue, setPassValue] = useState("");
@@ -22,37 +25,45 @@ function Login() {
           password: passValue,
         })
         .then(({ data }) => {
-          setToken(data);
-          window.localStorage.setItem("token", JSON.stringify(data))
+          setUserAccess(true);
+          setUser({
+            userName : data.userName,
+            userId: data.userId
+          })
+          window.localStorage.setItem("token", data.JWT)
+          window.localStorage.setItem('user', JSON.stringify({
+            userName : data.userName,
+            userId: data.userId
+          }))
           navigate("/index");
         })
         .catch((err) => {
-          alert(err.response.data)
+          console.log(err)
+          // alert(err.response.data)
           setUserName("")
           setPassValue("")
         });
     }
-    if (button === "register") {
-      const tokenValue = await axios.post(`${API}/register`, {
-          userName: userName,
-          password: passValue,
-        })
-        .then(({ data }) => {
-          console.log(data)
-          setToken(data)
-          window.localStorage.setItem("token", JSON.stringify({
-            token: data.token,
-            userId: data.id,
-            userName: data.userName
-          }));
-          navigate("/index")
-        })
-        .catch((err) => {
-          alert(err.response.data)
-          setUserName("")
-          setPassValue("")
-        })
-    }
+    // if (button === "register") {
+    //   const tokenValue = await axios.post(`${API}/register`, {
+    //       userName: userName,
+    //       password: passValue,
+    //     })
+    //     .then(({ data }) => {
+    //       setToken(data)
+    //       window.localStorage.setItem("token", JSON.stringify({
+    //         token: data.token,
+    //         userId: data.id,
+    //         userName: data.userName
+    //       }));
+    //       navigate("/index")
+    //     })
+    //     .catch((err) => {
+    //       alert(err.response.data)
+    //       setUserName("")
+    //       setPassValue("")
+    //     })
+    // }
   }
 
   return (
