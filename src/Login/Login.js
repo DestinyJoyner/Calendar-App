@@ -23,11 +23,7 @@ function Login() {
         })
         .then(({ data }) => {
           setToken(data);
-          window.localStorage.setItem("token", JSON.stringify({
-            token: data.token,
-            userId: data.id,
-            userName: data.userName
-          }));
+          window.localStorage.setItem("token", JSON.stringify(data))
           navigate("/index");
         })
         .catch((err) => {
@@ -43,7 +39,7 @@ function Login() {
         })
         .then(({ data }) => {
           console.log(data)
-          setToken(data);
+          setToken(data)
           window.localStorage.setItem("token", JSON.stringify({
             token: data.token,
             userId: data.id,

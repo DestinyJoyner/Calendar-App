@@ -37,7 +37,7 @@ function Provider({children}) {
         
         if(JSON.parse(window.localStorage.getItem('token'))){
             setToken(isToken)
-            axios.get(`${API}/schedule?userId=${isToken.userId}&credentials=${isToken.token}`)
+            axios.get(`${API}/schedule?userId=${isToken.id}&credentials=${isToken.token}`)
             .then(({data}) => setUserSchedule(data))
             .catch(err => console.log(err))
         }
