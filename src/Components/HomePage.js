@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useContextProvider } from "./Provider";
 import Login from "../Login/Login";
 import { daysInMonth, gridColStart } from "../Functions/helperFunctions"
 import "./HomePage.css";
 
-function IndexPage() {
-  const { daysOfWeek, monthArr, todaysDate } = useContextProvider()
+function HomePage() {
+  const { daysOfWeek, monthArr, todaysDate, userAccess } = useContextProvider()
   const { cal_day, cal_day_name, cal_month, cal_month_name, cal_year } = todaysDate
   const calendarArr = daysInMonth(cal_month, cal_year);
 
@@ -14,11 +15,21 @@ function IndexPage() {
     <div className="home">
 
       <article className="home-title">
-        <h2>Destiny's</h2>
-        <h2>Calendar App</h2>
-        <Login 
+        <h2>
+          <span>Destiny's </span>
+          <span>Calendar App</span>
+        </h2>
+        {
+          !userAccess ?
+          <Login 
           height = {"70%"}
-          width = {"80%"} />
+          width = {"80%"} /> :
+          <Link to = "/index">
+          <button className="home-button"
+          >View My Schedule</button>
+          </Link>
+        }
+       
       </article>
 
      
@@ -64,4 +75,4 @@ function IndexPage() {
   );
 }
 
-export default IndexPage;
+export default HomePage;

@@ -3,6 +3,7 @@
     top: 90px;
     right: 15px;
     z-index: 500;
+    font-family: PoiretOne;
 
 }
 
@@ -36,7 +37,7 @@
 }
 
 .nav nav {
-    width: 200px;
+    width: 150px;
     height: 60vh;
     display: grid;
     grid-template-rows: repeat(3, .5fr) .1fr;
