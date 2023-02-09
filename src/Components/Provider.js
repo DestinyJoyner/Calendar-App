@@ -25,6 +25,7 @@ function Provider({children}) {
         month: date.getMonth() + 1,
         year: date.getFullYear()
     })
+    const [newDate, setNewDate] = useState({})
 
     // state for user Login
     const [token, setToken] = useState({})
@@ -41,6 +42,10 @@ function Provider({children}) {
             .then(({data}) => setUserSchedule(data))
             .catch(err => console.log(err))
         }
+        // axios call to get info for today's date
+        axios.get(`${API}/calendar/${date.toISOString().split('T')[0]}`)
+        .then(({data}) => setNewDate(data))
+        .catch(err => console.log(err))
     }, [])
    
 
