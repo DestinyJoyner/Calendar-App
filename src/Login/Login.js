@@ -17,8 +17,7 @@ function Login() {
   async function signIn(e) {
     e.preventDefault();
     if (button === "login") {
-      const tokenValue = await axios
-        .post(`${API}/login`, {
+      const tokenValue = await axios.post(`${API}/login`, {
           userName: userName,
           password: passValue,
         })
@@ -38,8 +37,7 @@ function Login() {
         });
     }
     if (button === "register") {
-      const tokenValue = await axios
-        .post(`${API}/register`, {
+      const tokenValue = await axios.post(`${API}/register`, {
           userName: userName,
           password: passValue,
         })
