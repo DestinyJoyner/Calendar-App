@@ -17,8 +17,11 @@ function IndexPage() {
 
     return (
         <div className="index center">
-            <h2>{cal_day_name} {cal_month_name} {cal_day}, {cal_year}</h2>
+            <h4>{cal_day_name}<p> {cal_month_name} {cal_day}, {cal_year}</p></h4>
+            <h2>{user.userName}'s Calendar</h2>
 
+            <div className="index-list-container">
+                
            <div className="index-list">
             <h3>Date</h3>
             <h3>Event</h3>
@@ -28,6 +31,8 @@ function IndexPage() {
                     <IndexMap key ={obj.id} obj={obj} />
                 )
             }
+           </div>
+
            </div>
 
 
