@@ -1,6 +1,7 @@
 import { useContext, createContext, useState, useEffect } from "react";
 import axios from "axios";
 import Nav from "./Nav";
+import UserInfo from "./UserInfo";
 
 export const ContextData = createContext()
 export function useContextProvider() {
@@ -67,6 +68,7 @@ function Provider({children}) {
 
        }}>
         <Nav />
+        {userAccess && <UserInfo />}
 
         {children}
        </ContextData.Provider>

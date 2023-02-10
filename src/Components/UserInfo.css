@@ -1,0 +1,52 @@
+.userInfo {
+    border: 1px solid black;
+    color: #F9FBFF;
+    font-family: PoiretOne;
+    height: 100px;
+    width: 200px;
+    margin-left: 2%;
+    position: relative;
+    top: 2%;
+    display: grid;
+    grid-template-columns: .4fr .6fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.userInfo svg {
+    grid-column: 1;
+    grid-row: 1/3;
+}
+
+.userInfo span {
+    grid-column: 2;
+    grid-row: 1;
+    width: fit-content;
+    font-size: 20px;
+    letter-spacing: 1px;
+    background-color: rgba(0, 0, 0, 0.734) ;
+    padding: 5px;
+}
+
+.userInfo button {
+    grid-column: 2;
+    grid-row: 2;
+    width: 70%;
+    height: 60%;
+    font-size: 18px;
+    font-family: PoiretOne;
+    color: #F9FBFF;
+    border: 1px solid white;
+    box-shadow:  
+    0 0 0.1vw 0.2vw #F9FBFF,
+    0 0 0.4vw 0.1vw #fff,
+    0 0 1vw .1vw #F9FBFF;
+    background-color: rgba(0, 0, 0, 0.734);
+}
+
+.userInfo button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    border: 1px solid aqua;
+}
