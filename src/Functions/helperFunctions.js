@@ -22,8 +22,17 @@ function daysInMonth(month, year) {
     return daysObjArr;
   }
 
+  // function to slice/convert datestamp into ->mm-dd-yy
+  function convertDateStamp(string){
+    let date = string.slice(2, 10).split("-");
+    date.push(date[0]);
+    date.shift();
+    return date.join("/");
+  }
+
 
   export  {
     daysInMonth,
     gridColStart,
+    convertDateStamp,
   }

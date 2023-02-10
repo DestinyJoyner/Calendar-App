@@ -11,6 +11,11 @@
     background-color: darkgrey;
 }
 
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .dark {
     background-color: rgb(6, 6, 47);
     color:  #FDFEFF;
