@@ -1,17 +1,22 @@
 import { VscGithub } from "react-icons/vsc"
 import { GrLinkedin } from "react-icons/gr"
 import { TfiEmail } from "react-icons/tfi"
+import { BsFillCalendar2WeekFill } from "react-icons/bs"
 import "./Footer.css"
 
-function Footer(props) {
+function Footer() {
     return (
         <section className="squares">
         <div>
-          <span className="square1">s1</span>
+          <span className="square1">
+            <span><BsFillCalendar2WeekFill size={"30px"} color={"aqua"} /></span>
+          </span>
         </div>
         <div>
           <span className="square2">
             <span>Destiny Joyner</span>
+            <span>destinyjoyner@pursuit.org</span>
+            <span>New York City, New York</span>
           </span>
         </div>
         <div>
