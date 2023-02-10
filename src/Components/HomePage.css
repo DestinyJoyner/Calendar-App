@@ -1,6 +1,6 @@
  .home {
     display: grid;
-    grid-template-columns: 40% 15% 30% 15%;
+    grid-template-columns: 40% 10% 30% 20%;
     margin-top: 15%;
  } 
 

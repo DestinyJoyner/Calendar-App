@@ -7,18 +7,19 @@
     margin:0 auto;
     display: grid;
     grid-template-columns: repeat(7,1fr);
-    grid-template-rows: .22fr .15fr auto;
+    grid-template-rows: 15% 10% auto;
 }
 
 .calendar h1 {
     grid-column: span 7;
-    justify-self: center;
     text-decoration: underline;
     height: fit-content;
 }
 
 .calendar-week {
     height: fit-content;
+    padding-top: 10%;
+    justify-self: center;
 }
 
 .calendar-buttons{
@@ -30,6 +31,8 @@
     display: grid;
     align-items: center;
     background-color: #fdfeff7d;
+    width: 45px;
+    height: 45px;
 }
 .calendar-cell.today {
     background-color: rgba(0, 0, 0, 0.718);
