@@ -10,11 +10,10 @@ function IndexPage(props) {
 
 
     useEffect(() => {
-        console.log(user)
-        axios.get(`${API}/schedule?userId=${user.user_id}`,)
+        axios.get(`${API}/schedule?userId=${user.userId}`,)
         .then(({data}) => setUserSchedule(data))
         .catch(err => console.log(err))
-    },[user._userid])
+    },[user.userId])
 
     return (
         <div className="index">
