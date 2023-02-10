@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 40% 10% 30% 20%;
     margin-top: 15%;
+    padding-bottom: 2%;
  } 
 
 .home .home-title {
@@ -46,7 +47,3 @@
     height: 50px;
 }
 
-.home .squares {
-    grid-column: 2/4;
-    grid-row: 3;
-}

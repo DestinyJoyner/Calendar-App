@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useContextProvider } from "./Provider";
 import Login from "../Login/Login";
 import Calendar from "../ReusableComponents/Calendar";
+import Footer from "./Footer";
 import "./HomePage.css";
 
 function HomePage() {
@@ -28,13 +29,8 @@ function HomePage() {
         } 
       </article>
 
-      <section className="squares">
-        <div className="square 1">s1</div>
-        <div className="square 2">s2</div>
-        <div className="square 3">s3</div>
-      </section>
-        
       <Calendar />
+      <Footer />
 
     </div>
   );

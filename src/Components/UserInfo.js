@@ -8,8 +8,8 @@ function UserInfo() {
     const navigate = useNavigate()
     // function to 'logout'
     function logOut () {
-        window.localStorage.setItem('token', false)
-        window.localStorage.setItem('user', false)
+        window.localStorage.removeItem('token')
+        window.localStorage.removeItem('user')
         setUserAccess(false)
         navigate("/")
     }
