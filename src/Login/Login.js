@@ -28,12 +28,12 @@ function Login({width, height}) {
           setUserAccess(true);
           setUser({
             userName : data.userName,
-            userId: data.userId
+            user_id: data.userId
           })
-          window.localStorage.setItem("token", data.JWT)
+          window.localStorage.setItem("token", data.jwt)
           window.localStorage.setItem('user', JSON.stringify({
             userName : data.userName,
-            userId: data.userId
+            user_id: data.userId
           }))
           navigate("/index");
         })
