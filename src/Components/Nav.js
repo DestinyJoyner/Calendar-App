@@ -15,22 +15,13 @@ function Nav() {
             {
                 navbar && 
             <nav>
-                <span>
-                    <Link to ="/">HOME </Link>
-                    <hr className="white-line" />
-                </span>
-                <span>
-                    <Link to ="/about">ABOUT</Link>
-                    <hr className="white-line" />
-                </span>
-                <span>
-                    <Link to ="/index">INDEX </Link>
-                    <hr className="white-line" />
-                </span> 
+                <Link to ="/">HOME </Link>
+                <Link to ="/about">ABOUT</Link>
+                <Link to ="/index">INDEX </Link>
              {/* darkmode switch */}
              <label 
              htmlFor="switch"
-             className="switch">Toggle
+             className="switch">
                 <input 
                 type="checkbox" 
                 id="switch"
