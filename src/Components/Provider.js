@@ -1,12 +1,17 @@
 import { useContext, createContext, useState, useEffect } from "react";
 import axios from "axios";
 import Nav from "./Nav";
-
+import UserInfo from "./UserInfo";
 
 export const ContextData = createContext()
 export function useContextProvider() {
     return useContext(ContextData)
 }
+
+// declare default header value to be included in all axios calls (token from localStorage(temporary use))
+const token = window.localStorage.getItem('token')
+axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+const userStored = JSON.parse(window.localStorage.getItem('user'))
 
 function Provider({children}) {
     const API = process.env.REACT_APP_API_URL
@@ -18,23 +23,26 @@ function Provider({children}) {
     const [darkMode, setDarkMode] = useState(false)
     const [navbar, setNavBar] = useState(false)
     // declare state to hold obj with values of today's date
-    const [todaysDate, setTodaysDate] = useState({
-        day: date.getDate(),
-        dow: daysOfWeek[date.getDay()],
-        monthName: date.toLocaleString('default', {month: 'long'}),
-        month: date.getMonth() + 1,
-        year: date.getFullYear()
-    })
-
-    // state for user Login
-    const [token, setToken] = useState(false)
+    const [todaysDate, setTodaysDate] = useState({})
+    // state to hold user info
+    const [user, setUser] = useState(userStored ? userStored : {})
     // state to hold user access if successful login
-    const [user, setUser] = useState({})
+    const [userAccess, setUserAccess] = useState(token? true : false)
+    const [userSchedule, setUserSchedule] = useState()
 
     // useEffect to check current session of user still active i.e token = true
     useEffect(() => {
-        const isToken = window.localStorage.getItem('token')
-        setToken(isToken)
+        if(token){
+            axios.get(`${API}/schedule`, {userId: user.userId,
+            userName: user.userName
+            })
+            .then(({data}) => setUserSchedule(data))
+            .catch(err => console.log(err))
+        }
+        // axios call to get info for today's date
+        axios.get(`${API}/calendar/${date.toISOString().split('T')[0]}`)
+        .then(({data}) => setTodaysDate(data))
+        .catch(err => console.log(err))
     }, [])
    
 
@@ -51,13 +59,16 @@ function Provider({children}) {
         monthArr,
         todaysDate, 
         setTodaysDate,
-        token,
-        setToken,
-        user,
+        userSchedule,
+        setUserSchedule,
+        user, 
         setUser,
+        userAccess, 
+        setUserAccess,
 
        }}>
         <Nav />
+        {userAccess && <UserInfo />}
 
         {children}
        </ContextData.Provider>

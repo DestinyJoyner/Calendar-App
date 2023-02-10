@@ -4,8 +4,11 @@ import { useContextProvider } from "../Components/Provider";
 import UserForm from "../ReusableComponents/UserForm";
 import "./Login.css"
 
-function Login() {
-  const { API, axios, token, setToken, setUser } = useContextProvider();
+// testing tokens and headers 
+
+
+function Login({width, height}) {
+  const { API, axios, setUserAccess, setUser } = useContextProvider();
 
   const [userName, setUserName] = useState("");
   const [passValue, setPassValue] = useState("");
@@ -17,46 +20,56 @@ function Login() {
   async function signIn(e) {
     e.preventDefault();
     if (button === "login") {
-      const tokenValue = await axios
-        .post(`${API}/login`, {
+      const tokenValue = await axios.post(`${API}/login`, {
           userName: userName,
           password: passValue,
         })
         .then(({ data }) => {
-          setUser(data);
-          setToken(data.token);
-          window.localStorage.setItem("token", data.token);
+          setUserAccess(true);
+          setUser({
+            userName : data.userName,
+            userId: data.userId
+          })
+          window.localStorage.setItem("token", data.JWT)
+          window.localStorage.setItem('user', JSON.stringify({
+            userName : data.userName,
+            userId: data.userId
+          }))
           navigate("/index");
         })
         .catch((err) => {
-          alert(err.response.data)
+          console.log(err)
+          // alert(err.response.data)
           setUserName("")
           setPassValue("")
         });
     }
-    if (button === "register") {
-      const tokenValue = await axios
-        .post(`${API}/register`, {
-          userName: userName,
-          password: passValue,
-        })
-        .then(({ data }) => {
-          setUser(data);
-          setToken(data.token);
-          window.localStorage.setItem("token", data.token);
-          navigate("/index")
-        })
-        .catch((err) => {
-          alert(err.response.data)
-          setUserName("")
-          setPassValue("")
-        })
-    }
+    // if (button === "register") {
+    //   const tokenValue = await axios.post(`${API}/register`, {
+    //       userName: userName,
+    //       password: passValue,
+    //     })
+    //     .then(({ data }) => {
+    //       setToken(data)
+    //       window.localStorage.setItem("token", JSON.stringify({
+    //         token: data.token,
+    //         userId: data.id,
+    //         userName: data.userName
+    //       }));
+    //       navigate("/index")
+    //     })
+    //     .catch((err) => {
+    //       alert(err.response.data)
+    //       setUserName("")
+    //       setPassValue("")
+    //     })
+    // }
   }
 
   return (
-    <div className="login">
-      <h2>Login</h2>
+    <div className="login"
+    style={{height:height, width:width}}>
+      {/* <h2>Login</h2> */}
 
       <UserForm
         stateVar1={userName}

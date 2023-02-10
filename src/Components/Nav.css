@@ -1,8 +1,9 @@
 .nav {
     position: fixed;
-    top: 90px;
+    top: 55px;
     right: 15px;
     z-index: 500;
+    font-family: PoiretOne;
 
 }
 
@@ -16,11 +17,12 @@
     height: fit-content;
     position: fixed;
     right: 10px;
-    top: 50px;
+    top: 20px;
    
 }
 .nav button:hover {
     cursor: pointer;
+    border: none;
 }
 
 .nav-hr {
@@ -36,7 +38,7 @@
 }
 
 .nav nav {
-    width: 200px;
+    width: 150px;
     height: 60vh;
     display: grid;
     grid-template-rows: repeat(3, .5fr) .1fr;

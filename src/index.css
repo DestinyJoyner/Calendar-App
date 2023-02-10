@@ -1,1 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400&display=swap');
+
+@font-face {
+    font-family: "PoiretOne";
+    src: local("PoiretOne"), url("./Fonts/PoiretOne-aD0x.ttf") format("truetype");
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: PoiretOne;
+    /* color: #F9FBFF; */
+}
