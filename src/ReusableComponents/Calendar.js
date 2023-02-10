@@ -4,7 +4,7 @@ import { daysInMonth, gridColStart
 import "./Calendar.css"
 
 function Calendar(props) {
-    const { daysOfWeek, monthArr, todaysDate } = useContextProvider()
+    const { daysOfWeek, todaysDate } = useContextProvider()
 
     const { cal_day, cal_day_name, cal_month, cal_month_name, cal_year } = todaysDate
     

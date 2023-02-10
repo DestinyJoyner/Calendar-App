@@ -1,0 +1,56 @@
+ .squares {
+    grid-column: 2/4;
+    grid-row: 3;
+    align-self: end;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    height: 200px;
+    position: relative;
+    left: 33%;
+}
+
+.squares div {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-items: end;
+    text-align: center;
+}
+.square1, .square2, .square3 {
+    display: grid;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.square1 {
+    height: 125px;
+    width: 70%;
+}
+
+.square1 span {
+    margin-right: 5%;
+}
+
+.square2 {
+    height: 165px;
+    background-color:  black;
+    right: 22%;
+    font-size: 18px;
+    z-index: 300;
+}
+
+.square3 {
+    height: 200px;
+    right: 55%;
+}
+
+.square3 span {
+    margin-left: 10%;
+}
+
+.square2 span:first-child {
+    font-size: 26px;
+}
+
+

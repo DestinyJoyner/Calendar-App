@@ -1,15 +1,22 @@
+import { useEffect, useState } from "react";
+
 import { useContextProvider } from "./Provider";
-import Login from "../Login/Login";
+
 import "./IndexPage.css"
 
 function IndexPage(props) {
-    const {userAccess, userSchedule, setUserSchedule} = useContextProvider()
+    const { API, axios, userAccess, user} = useContextProvider()
+    const [userSchedule, setUserSchedule] = useState()
 
-    if(!userAccess){
-        return <Login />
-      }
+
+    useEffect(() => {
+        axios.get(`${API}/schedule?userId=${user.userId}`,)
+        .then(({data}) => setUserSchedule(data))
+        .catch(err => console.log(err))
+    },[user.userId])
+
     return (
-        <div>
+        <div className="index">
            Index 
         </div>
     );

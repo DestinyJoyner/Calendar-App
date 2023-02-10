@@ -1,5 +1,5 @@
 
-.App, .dark, .about, .home{
+.App, .dark, .about, .home, .index{
     position:fixed;
     left: 0;
     top: 0;
@@ -26,7 +26,7 @@
         letter-spacing: 2px;
 }
 
-button, .login form {
+button, .login form, .square1, .square2, .square3, nav {
     color: #F9FBFF;
     font-family: PoiretOne;
     border: 1px solid white;

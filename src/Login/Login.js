@@ -30,7 +30,7 @@ function Login({width, height}) {
             userName : data.userName,
             userId: data.userId
           })
-          window.localStorage.setItem("token", data.JWT)
+          window.localStorage.setItem("token", data.jwt)
           window.localStorage.setItem('user', JSON.stringify({
             userName : data.userName,
             userId: data.userId
