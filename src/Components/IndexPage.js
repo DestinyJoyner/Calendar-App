@@ -16,7 +16,7 @@ function IndexPage() {
         axios.get(`${API}/schedule?userId=${user.userId}`,)
         .then(({data}) => setUserSchedule(data))
         .catch(err => console.log(err))
-    },[user.userId])
+    },[user.userId, userSchedule &&userSchedule.length])
 
     return (
         <div className="index center">

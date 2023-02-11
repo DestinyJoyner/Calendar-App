@@ -48,11 +48,10 @@ function handleTextChange(e, stateVar, setFunction) {
   setFunction({...stateVar, [id]:value})
 }
 
-function handleCheckbox(e, setFunction1, var2, setFunction2){
+function handleCheckbox(e, var1, setFunction1, var2, setFunction2){
   const id = e.target.id
-  const value = e.target.value
-  setFunction1(!value)
-  setFunction2({...var2, id: !value })
+  setFunction1(!var1)
+  setFunction2({...var2, [id]: !var1 })
 }
   
 

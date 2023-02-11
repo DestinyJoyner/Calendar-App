@@ -25,7 +25,17 @@ function Form({stateVar, setFunction}) {
         }
         else{
             axios.post(`${API}/schedule?userId=${user.userId}`, form)
-            .then(({data}) => setFunction([...stateVar, data]))
+            .then(({data}) => {
+                setFunction([...stateVar, data])
+                setChecked(false)
+                setForm({
+                    day_start: "",
+                    title: "",
+                    description: "",
+                    important: checked,
+                    user_id: user.userId
+                })
+            })
             .catch(err => console.log(err))
         }
     }
@@ -81,7 +91,7 @@ function Form({stateVar, setFunction}) {
                 type="checkbox"
                 value={checked}
                 id="important"
-                onChange={(event) => handleCheckbox(event, setChecked, form, setForm)}
+                onChange={(event) => handleCheckbox(event, checked, setChecked, form, setForm)}
                  />
             </label>
 
