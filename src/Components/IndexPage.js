@@ -3,14 +3,14 @@ import { useContextProvider } from "./Provider";
 import IndexMap from "./IndexMap";
 import Upcoming from "./Upcoming";
 import Form from "../ReusableComponents/Form";
+import ToggleButton from "../ReusableComponents/ToggleButton";
 import "./IndexPage.css"
-
 
 function IndexPage() {
     const { API, axios, userAccess, user, todaysDate} = useContextProvider()
     const { cal_day, cal_day_name, cal_month, cal_month_name, cal_year } = todaysDate
     const [userSchedule, setUserSchedule] = useState()
-
+    const [hidden, setHidden] = useState(true)
 
     useEffect(() => {
         axios.get(`${API}/schedule?userId=${user.userId}`,)
@@ -33,12 +33,19 @@ function IndexPage() {
                     <IndexMap key ={obj.id} obj={obj} />
                 )
             }
+            <ToggleButton
+            stateVar={hidden}
+            setFunction={setHidden} />
            </div>
            </div>
-           <Form 
+           {
+            !hidden &&
+            <Form 
            stateVar={userSchedule}
            setFunction={setUserSchedule}
            />
+           }
+           
 
 
 

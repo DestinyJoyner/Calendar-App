@@ -9,6 +9,7 @@
 
 .App {
     background-color: darkgrey;
+    /* overflow-y:auto; */
 }
 
 .center {
@@ -47,3 +48,4 @@ button:hover, input[type=submit]:hover  {
     transform: scale(1.1);
     border: 1px solid aqua;
 }
+

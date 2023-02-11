@@ -1,5 +1,5 @@
 .form {
-    width: 100%;
+    width: 90%;
     height: 90%;
     align-self: center;
     display: grid;
@@ -39,4 +39,8 @@
 
 .form label {
     margin-left: 5%;
+}
+
+.form input[type=checkbox] {
+    transform: scale(2);
 }

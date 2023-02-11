@@ -1,7 +1,7 @@
 .index {
-    margin-top: 15%;
-    width: 90%;
-    padding-bottom: 3%;
+    margin-top: 13%;
+    width: 100%;
+    padding: 0% 2% 2% 2%;
     display: grid;
     grid-template-columns: 25% 65% 10%;
     grid-template-rows: .5fr 3fr 1.5fr;
@@ -61,6 +61,10 @@
 .index-list a:hover {
     transform: scale(1.1);
     text-decoration: underline;
+}
+
+.index-list .hover-text {
+    grid-column: 2;
 }
 
 .upcoming {
