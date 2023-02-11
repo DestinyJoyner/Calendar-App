@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { useContextProvider } from "./Provider";
 import IndexMap from "./IndexMap";
+import Upcoming from "./Upcoming";
+import Form from "../ReusableComponents/Form";
 import "./IndexPage.css"
+
 
 function IndexPage() {
     const { API, axios, userAccess, user, todaysDate} = useContextProvider()
@@ -21,8 +24,7 @@ function IndexPage() {
             <h2>{user.userName}'s Calendar</h2>
 
             <div className="index-list-container">
-                
-           <div className="index-list">
+            <div className="index-list">
             <h3>Date</h3>
             <h3>Event</h3>
             <h3>Important</h3>
@@ -32,12 +34,16 @@ function IndexPage() {
                 )
             }
            </div>
-
            </div>
+           <Form 
+           stateVar={userSchedule}
+           setFunction={setUserSchedule}
+           />
 
 
 
-           <aside className="upcoming">upcoming info</aside>
+           <Upcoming
+           userSchedule={userSchedule} />
            <aside className="urgent">Urgent</aside>
         </div>
     );

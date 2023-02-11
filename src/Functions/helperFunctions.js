@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const daysOfWeek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
 
 // DATE FUNCTIONS
@@ -30,9 +31,37 @@ function daysInMonth(month, year) {
     return date.join("/");
   }
 
+   // function for upcoming (not current day) events Max:3
+   function upcomingEvents (date, arr) {
+    const upcoming = arr.map(({day_start, title, id}, i) => {
+      // console.log(date < day_start)
+        // if(day_start > date ){
+        //     return <Link to ={`/index/${id}`}>{title}</Link>
+        // }
+    })
+    return upcomingEvents
+}
+
+function handleTextChange(e, stateVar, setFunction) {
+  const value = e.target.value
+  const id = e.target.id
+  setFunction({...stateVar, [id]:value})
+}
+
+function handleCheckbox(e, setFunction1, var2, setFunction2){
+  const id = e.target.id
+  const value = e.target.value
+  setFunction1(!value)
+  setFunction2({...var2, id: !value })
+}
+  
+
 
   export  {
     daysInMonth,
     gridColStart,
     convertDateStamp,
+    upcomingEvents,
+    handleTextChange,
+    handleCheckbox,
   }

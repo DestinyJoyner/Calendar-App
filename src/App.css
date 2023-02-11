@@ -31,7 +31,7 @@
         letter-spacing: 2px;
 }
 
-button, .login form, .square1, .square2, .square3, nav {
+button, .login form, .square1, .square2, .square3, nav, .form, input[type=submit] {
     color: #F9FBFF;
     font-family: PoiretOne;
     border: 1px solid white;
@@ -42,7 +42,7 @@ button, .login form, .square1, .square2, .square3, nav {
     background-color: rgba(0, 0, 0, 0.734);
 }
 
-button:hover {
+button:hover, input[type=submit]:hover  {
     cursor: pointer;
     transform: scale(1.1);
     border: 1px solid aqua;

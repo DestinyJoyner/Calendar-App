@@ -1,8 +1,9 @@
 .index {
     margin-top: 15%;
     width: 90%;
+    padding-bottom: 3%;
     display: grid;
-    grid-template-columns: 25% 60% 15%;
+    grid-template-columns: 25% 65% 10%;
     grid-template-rows: .5fr 3fr 1.5fr;
     justify-items: center;
 }
@@ -47,7 +48,7 @@
 .index-list h3 {
     font-size: 26px;
     border-bottom: aqua solid .5px;
-    border-bottom-style:groove ;
+    border-bottom-style:ridge;
     padding-bottom: 4%;
 }
 
@@ -70,6 +71,11 @@
 .urgent {
     grid-column: 3;
     grid-row: 1;
+}
+
+.index form {
+    grid-column: 2;
+    grid-row: 3;
 }
 
 
