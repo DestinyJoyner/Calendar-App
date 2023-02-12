@@ -20,7 +20,10 @@ function Form({stateVar, setFunction, buttonToggle}) {
         e.preventDefault()
         if(id){
             axios.put(`${API}/schedule/${id}?userId=${user.userId}`, form)
-            .then(({data}) => setFunction(data))
+            .then(({data}) => {
+                setFunction(data)
+                buttonToggle(true)
+            })
             .catch(err => console.log(err))
         }
         else{

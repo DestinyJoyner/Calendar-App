@@ -38,8 +38,6 @@
     font-size: 30px;
     color: black;
     text-shadow: 0px 0px 10px aqua;
-    
-    
 }
 
 .show-buttons {
@@ -84,4 +82,57 @@
 
 .show-info h2 {
     font-size: 40px;
+}
+
+.show .form {
+    all: unset;
+    
+    background-color: rgb(116, 116, 116);
+    border: 1px solid aqua;
+    height: 100%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5,1fr);
+    justify-items: center;
+    align-items: center;
+    z-index: 100;
+    grid-column: 1;
+    grid-row: 1/3;
+}
+
+.show .form label {
+    font-size: 30px;
+    letter-spacing: 3px;
+    color: black;
+}
+
+.show .form input[type=submit] {
+    grid-row: 5;
+    height: 40px;
+}
+
+.show .form label:nth-child(3) {
+    grid-row: 3;
+    display: unset;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    text-align: center;
+}
+.show .form label:nth-child(3) textarea {
+    margin: 0 auto;
+}
+
+.show .form label:nth-child(2) {
+    grid-row: 2;
+    grid-column: 1;
+}
+
+.show .form label:nth-child(4) {
+    grid-row: 4;
+}
+
+.form label:nth-child(3), .form label:first-child {
+   margin: 0;
 }
