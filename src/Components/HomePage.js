@@ -28,7 +28,9 @@ function HomePage() {
         } 
       </article>
 
-      <Calendar />
+      <Calendar
+      width={"90%"}
+      height={"100%"} />
       <Footer />
 
     </div>

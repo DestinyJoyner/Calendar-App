@@ -37,7 +37,7 @@ function DeleteModal() {
                 value={"NO"}
                 />
             </span> 
-        </div>
+            </div>
         </div>
         
     );

@@ -9,6 +9,7 @@ import { RiArrowGoBackLine } from "react-icons/ri"
 import { IoIosRemoveCircle } from "react-icons/io"
 import ClickButton from "../ReusableComponents/ClickButton";
 import ToggleButton from "../ReusableComponents/ToggleButton";
+import Calendar from "../ReusableComponents/Calendar";
 import "./ShowPage.css"
 
 function ShowPage() {
@@ -18,7 +19,7 @@ function ShowPage() {
     const [thisEvent, setThisEvent] = useState({})
     const [hidden, setHidden] = useState(true)
     const { day_start, title, description, important, user_id, cal_month, cal_day, cal_year, cal_day_name, cal_month_name } = thisEvent
-
+   
    const dayIcon = user_id ? dayIconPicker(cal_day_name) : ""
 
    function deletePrompt() {
@@ -45,6 +46,11 @@ function ShowPage() {
                     user_id ? 
                     <img src={dayIcon} alt={cal_day_name} className="day-icon" /> : <CiImageOff size={"100px"} color={"aqua"} />
                 }
+                { day_start && <Calendar 
+                date={day_start.slice(0,10)}
+                height={"80%"}
+                width={"100%"}/>
+}
             <section className="show-buttons">
                     <ClickButton
                     style={"go-back"}

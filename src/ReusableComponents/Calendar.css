@@ -1,9 +1,4 @@
 .calendar {
-    grid-column: 3;
-    grid-row: 1;
-    justify-self: center;
-    width: 90%;
-    height: 100%;
     margin:0 auto;
     display: grid;
     grid-template-columns: repeat(7,1fr);
