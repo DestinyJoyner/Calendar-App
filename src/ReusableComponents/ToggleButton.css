@@ -3,10 +3,6 @@
     all:unset;
 }
 
-.toggle-button svg path {
-    fill: #00D1D1;
-    stroke: black;
-}
 
 .hover-text{
     position: relative;

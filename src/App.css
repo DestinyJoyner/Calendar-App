@@ -33,7 +33,7 @@
         letter-spacing: 2px;
 }
 
-button, .login form, .square1, .square2, .square3, nav,  input[type=submit] {
+button, .login form, .square1, .square2, .square3, nav,  input[type=submit], .show-buttons a, .show-buttons .toggle-button {
     color: #F9FBFF;
     font-family: PoiretOne;
     border: 1px solid white;

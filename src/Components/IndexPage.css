@@ -71,6 +71,10 @@
     grid-column: 2;
     grid-row: 3;
 }
+.index .hover-text .toggle-button svg path {
+    fill: #00D1D1;
+    stroke: black;
+}
 
 .upcoming {
     grid-column: 1;

@@ -1,3 +1,58 @@
 .show {
+    margin-top: 5%;
+    width: 75%;
+    height: 60%;
+    padding-bottom: 5%;
+}
+
+.show h1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+.show-details {
+    margin-top: 5%;
+    border: 2px solid black;
+    background-color: rgba(66, 65, 65, 0.734) ;
+    box-shadow: 5px 5px 100px aqua;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    /* grid-template-rows: 5fr 1fr; */
+    justify-items: center;
+    height: 90%;
+}
+
+.show-buttons {
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-rows: 100px;
+    grid-auto-rows: 50px;
+    justify-items: center;
+    align-items: center;
+}
+
+.show-buttons .hover-text {
+   position: relative;
+   left: 23%;
+}
+.show-buttons .hover-text .toggle-button svg  {
+    fill: aqua;
+}
+
+.show-buttons .day-icon {
+    height: 100px;
     margin-top: 20%;
+}
+
+.show-info {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: center;
+    font-size: 26px;
+    display: grid;
+}
+
+.show-info h2 {
+    font-size: 40px;
 }

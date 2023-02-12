@@ -1,4 +1,12 @@
 import { Link } from "react-router-dom";
+import monday from "../assets/Monday-slouch.png"
+import tues from "../assets/Tuesday.png"
+import wed from "../assets/Humpday-Camel.png"
+import thurs from "../assets/Thursday.png"
+import fri from "../assets/Friday-Jason.png"
+import sunday from "../assets/Sunday.png"
+import saturday from "../assets/Saturday.png"
+
 const daysOfWeek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
 
 // DATE FUNCTIONS
@@ -53,6 +61,18 @@ function handleCheckbox(e, var1, setFunction1, var2, setFunction2){
   setFunction1(!var1)
   setFunction2({...var2, [id]: !var1 })
 }
+
+// function select day icon
+function dayIconPicker(string) {
+  const day = string.trim()
+  if(day === "Monday") return monday
+  if(day === "Tuesday") return tues
+  if(day === "Wednesday") return wed
+  if(day === "Thursday") return thurs
+  if(day === "Friday") return fri
+  if(day === "Saturday") return saturday
+  if(day === "Sunday") return sunday
+}
   
 
 
@@ -63,4 +83,5 @@ function handleCheckbox(e, var1, setFunction1, var2, setFunction2){
     upcomingEvents,
     handleTextChange,
     handleCheckbox,
+    dayIconPicker,
   }
