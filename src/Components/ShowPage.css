@@ -1,0 +1,138 @@
+.show {
+    margin-top: 5%;
+    width: 75%;
+    height: 75%;
+    padding-bottom: 5%;
+}
+
+.show h1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+.show-details {
+    margin-top: 3%;
+    border: 2px solid black;
+    background-color: rgba(66, 65, 65, 0.734) ;
+    box-shadow: 5px 5px 100px aqua;
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+    grid-template-rows: 1fr 3fr 1fr;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+}
+
+.show-details img {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.show-details .calendar {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.show-details .calendar h1 {
+    text-decoration: none;
+    font-size: 30px;
+    color: black;
+    text-shadow: 0px 0px 10px aqua;
+}
+
+.show-buttons {
+    grid-column: span 2;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+
+.show-buttons .hover-text {
+    top: 0;
+    left: 18%;
+ }
+
+ .show-buttons .hover-text:first-of-type {
+    left: 26%;
+ }
+
+.show-buttons .hover-text:nth-last-of-type(2) {
+   left: 29%;
+}
+
+.show-buttons .hover-text .toggle-button svg  {
+    fill: aqua;
+}
+
+.show-buttons .day-icon {
+    height: 120px;
+}
+
+.show-info {
+    grid-column: 1;
+    grid-row: 1/3;
+    height: 90%;
+    align-self: center;
+    text-align: center;
+    font-size: 26px;
+    display: grid;
+}
+
+.show-info h2 {
+    font-size: 40px;
+}
+
+.show .form {
+    all: unset;
+    
+    background-color: rgb(116, 116, 116);
+    border: 1px solid aqua;
+    height: 100%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5,1fr);
+    justify-items: center;
+    align-items: center;
+    z-index: 100;
+    grid-column: 1;
+    grid-row: 1/3;
+}
+
+.show .form label {
+    font-size: 30px;
+    letter-spacing: 3px;
+    color: black;
+}
+
+.show .form input[type=submit] {
+    grid-row: 5;
+    height: 40px;
+}
+
+.show .form label:nth-child(3) {
+    grid-row: 3;
+    display: unset;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    text-align: center;
+}
+.show .form label:nth-child(3) textarea {
+    margin: 0 auto;
+}
+
+.show .form label:nth-child(2) {
+    grid-row: 2;
+    grid-column: 1;
+}
+
+.show .form label:nth-child(4) {
+    grid-row: 4;
+}
+
+.form label:nth-child(3), .form label:first-child {
+   margin: 0;
+}

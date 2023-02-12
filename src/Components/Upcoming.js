@@ -7,7 +7,6 @@ import "./Upcoming.css"
 function Upcoming({userSchedule}) {
     const {API, axios, todaysDate, date, user} = useContextProvider()
     const[happeningToday, setHappeningToday] = useState([])
-    console.log(userSchedule)
     // const upcoming = userSchedule[0] ? upcomingEvents(date, userSchedule) : []
 
 

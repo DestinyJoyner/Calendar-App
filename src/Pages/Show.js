@@ -1,10 +1,8 @@
-
+import ShowPage from "../Components/ShowPage";
 
 function Show() {
     return (
-        <div>
-            
-        </div>
+        <ShowPage />
     );
 }
 

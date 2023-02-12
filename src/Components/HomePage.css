@@ -51,3 +51,9 @@
     height: 50px;
 }
 
+.home .calendar {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: center;
+}
+

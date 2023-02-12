@@ -14,7 +14,7 @@ function ToggleButton({stateVar, setFunction, edit}) {
         onClick={() => setFunction(!stateVar)}>
             {!edit ? <GrTableAdd size={"38px"} /> : <MdEditCalendar color={"white"} size= {"60px"} /> }
         </button>
-        <span>Add New Event</span>
+        <span>{edit ? "Edit Event" : "Add New Event" }</span>
         </div>
     );
 }

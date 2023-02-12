@@ -1,18 +1,31 @@
+import { useState, useEffect } from "react";
 import { useContextProvider } from "../Components/Provider";
 import { daysInMonth, gridColStart
  } from "../Functions/helperFunctions";
 import "./Calendar.css"
 
-function Calendar(props) {
-    const { daysOfWeek, todaysDate } = useContextProvider()
-
-    const { cal_day, cal_day_name, cal_month, cal_month_name, cal_year } = todaysDate
+function Calendar({date, height, width}) {
+    const { API, axios, daysOfWeek, todaysDate } = useContextProvider()
+    const [getDate, setGetDate] = useState({})
+    const thisDate = !date ? todaysDate : getDate
+    const { cal_day, cal_day_name, cal_month, cal_month_name, cal_year } = thisDate
     
-    const calendarArr = daysInMonth(cal_month, cal_year);
+    const calendarArr = thisDate.cal_date ? daysInMonth(cal_month, cal_year, cal_month_name.trim()) : []
+   
+    useEffect(() => {
+      if(date) {
+        axios.get(`${API}/calendar/${date}`)
+        .then(({data}) => setGetDate(data))
+        .catch(err=> console.log(err))
+      }
+    },[thisDate])
 
     return (
-        <div className="calendar">
-        <h1>{cal_month_name}{" "}{cal_year}</h1>
+        <div 
+        className="calendar"
+        style={{maxHeight:height, maxWidth: width }}>
+
+            <h1>{cal_month_name}{" "}{cal_year}</h1>
         {/* set first index value with style for grid column start -> all others will follow */}
         {daysOfWeek.map((el, i) => (
           <span key={i} className="calendar-week">
