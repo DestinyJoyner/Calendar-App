@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useContextProvider } from "../Components/Provider";
-import { handleTextChange, handleCheckbox } from "../Functions/helperFunctions";
+import { handleTextChange, handleCheckbox, convertDateStamp } from "../Functions/helperFunctions";
 import "./Form.css"
 
 function Form({stateVar, setFunction, buttonToggle}) {
@@ -51,6 +51,7 @@ function Form({stateVar, setFunction, buttonToggle}) {
                 if(data.important){
                     setChecked(true)
                 }
+                data.day_start = data.day_start.split(`T`)[0]
                 setForm(data)
             })
             .catch(err => console.log(err))

@@ -10,6 +10,7 @@ import { IoIosRemoveCircle } from "react-icons/io"
 import ClickButton from "../ReusableComponents/ClickButton";
 import ToggleButton from "../ReusableComponents/ToggleButton";
 import Calendar from "../ReusableComponents/Calendar";
+import Form from "../ReusableComponents/Form";
 import "./ShowPage.css"
 
 function ShowPage() {
@@ -71,12 +72,27 @@ function ShowPage() {
                 </section>
              
                 <section className="show-info">
-                    <h2>{title}</h2>
-                    <p>{description}</p>
-                    <span>{important ? <HiBellAlert size={"50px"} color={"aqua"}/> : <BsBellSlash size={"50px"} color={"aqua"} />} </span>
+                    <h2>
+                        <span>Event: </span>
+                        {title}
+                    </h2>
+                    <p>
+                        <span>Details: </span>
+                        {description}
+                    </p>
+                    <span>
+                        <span>Important?<br/></span>
+                        {important ? <HiBellAlert size={"50px"} color={"aqua"}/> : <BsBellSlash size={"50px"} color={"aqua"} />}
+                    </span>
                 </section>
 
-                
+                {
+                    !hidden &&
+                    <Form 
+                    stateVar={thisEvent}
+                    setFunction={setThisEvent}
+                    buttonToggle={setHidden}/>
+                }
 
             </div>
 
