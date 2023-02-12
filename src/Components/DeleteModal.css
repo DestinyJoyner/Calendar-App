@@ -9,14 +9,27 @@
   }
 
   .deleteModal {
-    position: fixed;
+    position: relative;
     width: 60%;
-    height: auto;
-    left: 7%;
-    background-color: rgba(0, 255, 255, 0.584);
-    border: 2px solid #AA0078;
-    color: #050539 ;
-    padding: 50px;
+    height: 50%;
+    top: 15%;
+    left: 20%;
+    background-color: rgba(169, 169, 169, 0.872);
+    border: 2px solid aqua;
+    color: black;
     z-index: 1000;
     text-align: center;
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+    align-items: center;
+  }
+
+  .deleteModal h3 {
+    font-size: 50px;
+    margin-top: 10%;
+  }
+
+  .deleteModal span {
+    display: flex;
+    justify-content: space-evenly;
   }

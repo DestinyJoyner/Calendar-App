@@ -32,6 +32,8 @@ function Provider({children}) {
     const [userAccess, setUserAccess] = useState(user.userId? true : false)
     // state to toggle delete modal prompt
     const [deleteModal, setDeleteModal] = useState(false)
+    // state to store id value of event to be deleted
+    const [deleteModalId, setDeleteModalId] = useState("")
     
     // useEffect to check current session of user still active i.e token = true
     useEffect(() => {
@@ -64,6 +66,8 @@ function Provider({children}) {
         setUserAccess,
         deleteModal,
         setDeleteModal,
+        deleteModalId,
+        setDeleteModalId,
 
        }}>
         <Nav />

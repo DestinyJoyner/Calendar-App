@@ -12,7 +12,7 @@ import ToggleButton from "../ReusableComponents/ToggleButton";
 import "./ShowPage.css"
 
 function ShowPage() {
-    const { API, axios, user, userAccess, setDeleteModal} = useContextProvider()
+    const { API, axios, user, userAccess, setDeleteModal, setDeleteModalId} = useContextProvider()
     const { id } = useParams()
     const navigate = useNavigate()
     const [thisEvent, setThisEvent] = useState({})
@@ -22,6 +22,7 @@ function ShowPage() {
    const dayIcon = user_id ? dayIconPicker(cal_day_name) : ""
 
    function deletePrompt() {
+    setDeleteModalId(id)
     setDeleteModal(true)
    }
 
@@ -43,9 +44,8 @@ function ShowPage() {
                 {
                     user_id ? 
                     <img src={dayIcon} alt={cal_day_name} className="day-icon" /> : <CiImageOff size={"100px"} color={"aqua"} />
-                    }
+                }
             <section className="show-buttons">
-                   
                     <ClickButton
                     style={"go-back"}
                     icon={<RiArrowGoBackLine size={"60px"} color={"aqua"} />} 
