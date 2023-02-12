@@ -70,6 +70,8 @@
 .index .hover-text {
     grid-column: 2;
     grid-row: 3;
+    left: 10%;
+    top: 25%;
 }
 .index .hover-text .toggle-button svg path {
     fill: #00D1D1;

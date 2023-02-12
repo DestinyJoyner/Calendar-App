@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Nav from "./Nav";
 import UserInfo from "./UserInfo";
+import DeleteModal from "./DeleteModal";
 
 export const ContextData = createContext()
 export function useContextProvider() {
@@ -29,6 +30,8 @@ function Provider({children}) {
     const [user, setUser] = useState(userStored ? userStored : {})
     // state to hold user access if successful login
     const [userAccess, setUserAccess] = useState(user.userId? true : false)
+    // state to toggle delete modal prompt
+    const [deleteModal, setDeleteModal] = useState(false)
     
     // useEffect to check current session of user still active i.e token = true
     useEffect(() => {
@@ -59,11 +62,13 @@ function Provider({children}) {
         setUser,
         userAccess, 
         setUserAccess,
+        deleteModal,
+        setDeleteModal,
 
        }}>
         <Nav />
         {userAccess && <UserInfo />}
-
+        {deleteModal && <DeleteModal />}
         {children}
        </ContextData.Provider>
     </div>

@@ -1,23 +1,34 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useContextProvider } from "./Provider";
 import { dayIconPicker } from "../Functions/helperFunctions";
 import { HiBellAlert } from "react-icons/hi2"
 import { BsBellSlash } from "react-icons/bs"
 import { CiImageOff } from "react-icons/ci"
+import { RiArrowGoBackLine } from "react-icons/ri"
+import { IoIosRemoveCircle } from "react-icons/io"
+import ClickButton from "../ReusableComponents/ClickButton";
 import ToggleButton from "../ReusableComponents/ToggleButton";
 import "./ShowPage.css"
 
 function ShowPage() {
-    const { API, axios, user, userAccess,  } = useContextProvider()
+    const { API, axios, user, userAccess, setDeleteModal} = useContextProvider()
     const { id } = useParams()
+    const navigate = useNavigate()
     const [thisEvent, setThisEvent] = useState({})
     const [hidden, setHidden] = useState(true)
     const { day_start, title, description, important, user_id, cal_month, cal_day, cal_year, cal_day_name, cal_month_name } = thisEvent
 
    const dayIcon = user_id ? dayIconPicker(cal_day_name) : ""
-    
 
+   function deletePrompt() {
+    setDeleteModal(true)
+   }
+
+   function goBack() {
+    navigate("/index")
+   }
+    
     useEffect(() => {
         axios.get(`${API}/schedule/${id}?userId=${user_id}`)
         .then(({data}) => setThisEvent(data))
@@ -29,16 +40,28 @@ function ShowPage() {
             <h1>{cal_day_name} {cal_month_name} {cal_day} {cal_year}</h1>
             
             <div className="show-details" >
-            <section className="show-buttons">
-                    {
+                {
                     user_id ? 
                     <img src={dayIcon} alt={cal_day_name} className="day-icon" /> : <CiImageOff size={"100px"} color={"aqua"} />
                     }
-                    <Link to ="/index">Back</Link>
+            <section className="show-buttons">
+                   
+                    <ClickButton
+                    style={"go-back"}
+                    icon={<RiArrowGoBackLine size={"60px"} color={"aqua"} />} 
+                    onClick={goBack}
+                    value={"Go Back"}/>
+                   
                     <ToggleButton
                     stateVar={hidden}
                     setFunction={setHidden}
                     edit={true} />
+
+                    <ClickButton 
+                    style={"delete"}
+                    icon={<IoIosRemoveCircle size={"60px"} color={"aqua"}/>}
+                    onClick={deletePrompt}
+                    value= {"Delete"}/>
                 </section>
              
                 <section className="show-info">

@@ -1,0 +1,22 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.893);
+    z-index: 1000;
+  }
+
+  .deleteModal {
+    position: fixed;
+    width: 60%;
+    height: auto;
+    left: 7%;
+    background-color: rgba(0, 255, 255, 0.584);
+    border: 2px solid #AA0078;
+    color: #050539 ;
+    padding: 50px;
+    z-index: 1000;
+    text-align: center;
+  }
