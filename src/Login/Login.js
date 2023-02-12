@@ -44,26 +44,31 @@ function Login({width, height}) {
           setPassValue("")
         });
     }
-    // if (button === "register") {
-    //   const tokenValue = await axios.post(`${API}/register`, {
-    //       userName: userName,
-    //       password: passValue,
-    //     })
-    //     .then(({ data }) => {
-    //       setToken(data)
-    //       window.localStorage.setItem("token", JSON.stringify({
-    //         token: data.token,
-    //         userId: data.id,
-    //         userName: data.userName
-    //       }));
-    //       navigate("/index")
-    //     })
-    //     .catch((err) => {
-    //       alert(err.response.data)
-    //       setUserName("")
-    //       setPassValue("")
-    //     })
-    // }
+    if (button === "register") {
+      const tokenValue = await axios.post(`${API}/register`, {
+          userName: userName,
+          password: passValue,
+        })
+        .then(({ data }) => {
+          setUserAccess(true);
+          setUser({
+            userName : data.userName,
+            userId: data.userId
+          })
+          window.localStorage.setItem("token", data.jwt)
+          window.localStorage.setItem('user', JSON.stringify({
+            userName : data.userName,
+            userId: data.userId
+          }))
+          navigate("/index")
+        })
+        .catch((err) => {
+          console.log(err.response.data)
+          // alert(err.response.data)
+          setUserName("")
+          setPassValue("")
+        })
+    }
   }
 
   return (

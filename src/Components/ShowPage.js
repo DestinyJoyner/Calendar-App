@@ -36,7 +36,7 @@ function ShowPage() {
         axios.get(`${API}/schedule/${id}?userId=${user_id}`)
         .then(({data}) => setThisEvent(data))
         .catch(err => console.log(err))
-    },[id])
+    },[id, thisEvent.day_start])
 
     return ( 
         <div className="show center">
@@ -44,8 +44,8 @@ function ShowPage() {
             
             <div className="show-details" >
                 {
-                    user_id ? 
-                    <img src={dayIcon} alt={cal_day_name} className="day-icon" /> : <CiImageOff size={"100px"} color={"aqua"} />
+                    cal_day_name ? 
+                    <img src={dayIconPicker(cal_day_name)} alt={cal_day_name} className="day-icon" /> : <CiImageOff size={"100px"} color={"aqua"} />
                 }
                 { day_start && <Calendar 
                 date={day_start.slice(0,10)}
