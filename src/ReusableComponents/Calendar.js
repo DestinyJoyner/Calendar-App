@@ -10,15 +10,15 @@ function Calendar({date, height, width}) {
     const thisDate = !date ? todaysDate : getDate
     const { cal_day, cal_day_name, cal_month, cal_month_name, cal_year } = thisDate
     
-    const calendarArr = daysInMonth(cal_month, cal_year);
-
+    const calendarArr = thisDate.cal_date ? daysInMonth(cal_month, cal_year, cal_month_name.trim()) : []
+   
     useEffect(() => {
       if(date) {
         axios.get(`${API}/calendar/${date}`)
         .then(({data}) => setGetDate(data))
         .catch(err=> console.log(err))
       }
-    },[])
+    },[thisDate])
 
     return (
         <div 

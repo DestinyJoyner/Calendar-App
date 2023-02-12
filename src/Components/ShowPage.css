@@ -11,7 +11,7 @@
 }
 
 .show-details {
-    margin-top: 5%;
+    margin-top: 3%;
     border: 2px solid black;
     background-color: rgba(66, 65, 65, 0.734) ;
     box-shadow: 5px 5px 100px aqua;
@@ -20,7 +20,7 @@
     grid-template-rows: 1fr 3fr 1fr;
     justify-items: center;
     align-items: center;
-    height: 90%;
+    height: 100%;
 }
 
 .show-details img {
