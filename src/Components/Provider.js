@@ -1,4 +1,5 @@
 import { useContext, createContext, useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Nav from "./Nav";
 import UserInfo from "./UserInfo";
@@ -14,13 +15,12 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 const userStored = JSON.parse(window.localStorage.getItem('user'))
 
 function Provider({children}) {
+    const {pathname} = useLocation()
+
     const daysOfWeek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
-    // const monthArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     const dateObj = new Date()
     const date = dateObj.toLocaleString("en-US", {timeZone: "America/New_York"}).split(',').join(``).replaceAll("/","-").split(` `)[0]
-    // console.log(date)
-    // console.log(new Date().toLocaleString("en-US", {timeZone: "America/New_York"}).split(',')[0])
-
+   
     const [darkMode, setDarkMode] = useState(false)
     const [navbar, setNavBar] = useState(false)
     // declare state to hold obj with values of today's date
@@ -30,7 +30,6 @@ function Provider({children}) {
     // state to hold user access if successful login
     const [userAccess, setUserAccess] = useState(user.userId? true : false)
     
-
     // useEffect to check current session of user still active i.e token = true
     useEffect(() => {
         // axios call to get info for today's date
@@ -38,8 +37,11 @@ function Provider({children}) {
         .then(({data}) => setTodaysDate(data))
         .catch(err => console.log(err))
     }, [])
+    
+    useEffect(() =>{
+        window.scrollTo(0, 0)
+    }, [pathname])
    
-
     return (
     <div className= {darkMode ? "dark" : "App"}>
        <ContextData.Provider value = {{

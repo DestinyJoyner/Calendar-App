@@ -10,19 +10,20 @@
 
 .hover-text{
     position: relative;
-    left: 15%;
+    left: 6%;
+    top: 25%;
 }
 .hover-text span {
     visibility: hidden;
     width: 200px;
+    font-size: 20px;
     background-color: rgba(0, 0, 0, 0.94);
-    color: #00D1D1;
+    color: aqua;
     text-align: center;
     padding: 1px;
     position: relative;
     bottom: 35px;
     right: 75px;
-
 }
 
 .hover-text:hover span {

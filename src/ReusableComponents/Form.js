@@ -4,7 +4,7 @@ import { useContextProvider } from "../Components/Provider";
 import { handleTextChange, handleCheckbox } from "../Functions/helperFunctions";
 import "./Form.css"
 
-function Form({stateVar, setFunction}) {
+function Form({stateVar, setFunction, buttonToggle}) {
     const { API, axios, user} = useContextProvider()
     const {id} = useParams()
     const [checked, setChecked] = useState(false)
@@ -28,6 +28,7 @@ function Form({stateVar, setFunction}) {
             .then(({data}) => {
                 setFunction([...stateVar, data])
                 setChecked(false)
+                buttonToggle(true)
                 setForm({
                     day_start: "",
                     title: "",
@@ -36,7 +37,10 @@ function Form({stateVar, setFunction}) {
                     user_id: user.userId
                 })
             })
-            .catch(err => console.log(err))
+            .catch(({response}) => {
+                const { data } = response
+                console.log(data.errors)
+            })
         }
     }
 
@@ -64,6 +68,7 @@ function Form({stateVar, setFunction}) {
                 value={form["day_start"]}
                 id="day_start"
                 onChange={(event) => handleTextChange(event, form, setForm)}
+                required
                  />
             </label>
 
@@ -73,6 +78,7 @@ function Form({stateVar, setFunction}) {
                 value={form["title"]}
                 id="title"
                 onChange={(event) => handleTextChange(event, form, setForm)}
+                required
                  />
             </label>
 
@@ -81,7 +87,7 @@ function Form({stateVar, setFunction}) {
                 value={form["description"]}
                 id="description"
                 rows="3"
-                cols="20"
+                cols="30"
                 onChange={(event) => handleTextChange(event, form, setForm)}
                  />
             </label>

@@ -5,6 +5,7 @@
     top: 0;
     right: 0;
     bottom: 0;
+    overflow: auto;
 }
 
 .App {
@@ -32,7 +33,7 @@
         letter-spacing: 2px;
 }
 
-button, .login form, .square1, .square2, .square3, nav, .form, input[type=submit] {
+button, .login form, .square1, .square2, .square3, nav,  input[type=submit] {
     color: #F9FBFF;
     font-family: PoiretOne;
     border: 1px solid white;
@@ -48,4 +49,17 @@ button:hover, input[type=submit]:hover  {
     transform: scale(1.1);
     border: 1px solid aqua;
 }
+
+/* scrollbar */
+::-webkit-scrollbar {
+    /* // Width of vertical scroll bar */
+    width: 7px;
+    /* // Height of horizontal scroll bar */
+    height: 8px;
+  }
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 1.3px solid #00D1D1;
+    background-color: rgb(0, 0, 0);
+  }
 

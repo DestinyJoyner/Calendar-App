@@ -27,22 +27,24 @@ function IndexPage() {
             <div className="index-list">
             <h3>Date</h3>
             <h3>Event</h3>
-            <h3>Important</h3>
+            <h3>Alert</h3>
             {userSchedule &&
                 userSchedule.map(obj => 
                     <IndexMap key ={obj.id} obj={obj} />
                 )
             }
-            <ToggleButton
+        
+           </div>
+           </div>
+           <ToggleButton
             stateVar={hidden}
             setFunction={setHidden} />
-           </div>
-           </div>
            {
             !hidden &&
             <Form 
            stateVar={userSchedule}
            setFunction={setUserSchedule}
+           buttonToggle={setHidden}
            />
            }
            

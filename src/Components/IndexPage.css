@@ -1,10 +1,10 @@
 .index {
-    margin-top: 13%;
-    width: 100%;
-    padding: 0% 2% 2% 2%;
+    margin-top: 10%;
+    width: 95%;
+    padding-bottom: 1%;
     display: grid;
-    grid-template-columns: 25% 65% 10%;
-    grid-template-rows: .5fr 3fr 1.5fr;
+    grid-template-columns: 20% 65% 15%;
+    grid-template-rows: 10% 60% 5% 35%;
     justify-items: center;
 }
 
@@ -15,11 +15,15 @@
 .index h4 {
     grid-column: 1;
     font-size: 24px;
+    justify-self: left;
+    position: relative;
+    top: 30px;
 }
 
 .index h2 {
     grid-column: 2;
-    font-size: 38px;
+    font-size: 34px;
+    margin-bottom: 2%;
 }
 
 .index-list-container{
@@ -33,10 +37,10 @@
     background-color: rgba(85, 85, 85, 0.74);
     font-size: 18px;
     width: 100%;
-    height: 100%;
+    max-height: 100%;
     display: grid;
     align-items: center;
-    grid-template-columns: 25% 50% 25%;
+    grid-template-columns: 20% 65% 15%;
     grid-template-rows: 50px;
     grid-auto-rows: 55px;
     justify-items: center;
@@ -63,8 +67,9 @@
     text-decoration: underline;
 }
 
-.index-list .hover-text {
+.index .hover-text {
     grid-column: 2;
+    grid-row: 3;
 }
 
 .upcoming {
@@ -79,7 +84,7 @@
 
 .index form {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 4;
 }
 
 
