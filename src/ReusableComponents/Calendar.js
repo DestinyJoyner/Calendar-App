@@ -22,6 +22,7 @@ function Calendar(props) {
         {calendarArr.map((el, i) => {
             if(i===0){
                 return <div
+                key={i}
                 className="calendar-cell" 
                 style={{ gridColumnStart: gridColStart }}>
                     <span>{el.date}</span>
@@ -29,12 +30,15 @@ function Calendar(props) {
             }
             else if(el.date === +cal_day){
                return <div 
+               key={i}
                className="calendar-cell today">
                   <span>{el.date}</span>
                 </div>
             }
             else {
-                return <div className="calendar-cell">
+                return <div 
+                key={i}
+                className="calendar-cell">
                         <span>{el.date}</span>
                         </div>
             }

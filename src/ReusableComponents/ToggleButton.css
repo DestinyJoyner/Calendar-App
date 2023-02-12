@@ -1,0 +1,31 @@
+
+.toggle-button {
+    all:unset;
+}
+
+.toggle-button svg path {
+    fill: #00D1D1;
+    stroke: black;
+}
+
+.hover-text{
+    position: relative;
+    left: 6%;
+    top: 25%;
+}
+.hover-text span {
+    visibility: hidden;
+    width: 200px;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.94);
+    color: aqua;
+    text-align: center;
+    padding: 1px;
+    position: relative;
+    bottom: 35px;
+    right: 75px;
+}
+
+.hover-text:hover span {
+    visibility: visible;
+}

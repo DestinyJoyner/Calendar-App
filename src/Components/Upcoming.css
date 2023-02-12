@@ -1,0 +1,28 @@
+.upcoming {
+    margin-top: 30%;
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    grid-template-rows: repeat();
+    list-style: none;
+}
+
+.happening-today {
+    width: 100%;
+    font-size: 20px;
+    letter-spacing: .5px;
+}
+
+.happening-today h5{
+    width: fit-content;
+    margin: 8% 0;
+    font-size: 24px;
+    text-align: left;
+    border-bottom: rgb(27, 252, 252) solid .5px;
+    border-bottom-style:ridge;
+    padding-bottom: 4%;
+}
+
+.happening-today li {
+    margin-bottom: 5%;
+}

@@ -39,6 +39,7 @@
     grid-template-rows: repeat(3, 28%) 16%;
     justify-items: center;
     align-items: center;
+    z-index: 300;
 }
 
 .nav nav a {
