@@ -33,7 +33,7 @@ function Form({stateVar, setFunction, buttonToggle}) {
                     day_start: "",
                     title: "",
                     description: "",
-                    important: checked,
+                    important: "",
                     user_id: user.userId
                 })
             })
@@ -48,9 +48,7 @@ function Form({stateVar, setFunction, buttonToggle}) {
         if(id){
             axios.get(`${API}/schedule/${id}?userId=${user.userId}`)
             .then(({data}) => {
-                if(data.important){
-                    setChecked(true)
-                }
+                setChecked(data.important)
                 data.day_start = data.day_start.split(`T`)[0]
                 setForm(data)
             })
@@ -96,7 +94,8 @@ function Form({stateVar, setFunction, buttonToggle}) {
             <label htmlFor="important">Alert: {" "}
                 <input
                 type="checkbox"
-                value={checked}
+                checked={checked}
+                value={form["important"]}
                 id="important"
                 onChange={(event) => handleCheckbox(event, checked, setChecked, form, setForm)}
                  />

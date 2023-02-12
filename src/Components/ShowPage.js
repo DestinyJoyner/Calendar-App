@@ -21,7 +21,7 @@ function ShowPage() {
     const [hidden, setHidden] = useState(true)
     const { day_start, title, description, important, user_id, cal_month, cal_day, cal_year, cal_day_name, cal_month_name } = thisEvent
    
-   const dayIcon = user_id ? dayIconPicker(cal_day_name) : ""
+   const dayIcon = cal_day_name ? dayIconPicker(cal_day_name) : ""
 
    function deletePrompt() {
     setDeleteModalId(id)
