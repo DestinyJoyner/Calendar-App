@@ -36,7 +36,7 @@
     width: 150px;
     height: 55vh;
     display: grid;
-    grid-template-rows: repeat(3, 28%) 16%;
+    grid-template-rows: repeat(4, 22%) 12%;
     justify-items: center;
     align-items: center;
     z-index: 300;

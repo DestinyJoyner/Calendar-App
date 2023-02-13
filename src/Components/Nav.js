@@ -16,8 +16,9 @@ function Nav() {
                 navbar && 
             <nav>
                 <Link to ="/">HOME </Link>
-                <Link to ="/about">ABOUT</Link>
                 <Link to ="/index">INDEX </Link>
+                <Link to ="/index/new">ADD EVENT</Link>
+                <Link to ="/about">ABOUT</Link>
              {/* darkmode switch */}
              <label 
              htmlFor="switch"

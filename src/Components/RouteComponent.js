@@ -15,6 +15,7 @@ function RouteComponent() {
                 <Route path = "about" element = {<About />} />
                 <Route path = "index"> 
                     <Route index element = {<Index />} />
+                    <Route path = "new" element={<New />} />
                     <Route path = ":id" element = {<Show />} />
                 </Route>
 
