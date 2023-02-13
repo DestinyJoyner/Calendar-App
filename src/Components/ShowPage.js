@@ -22,7 +22,7 @@ function ShowPage() {
     const [hidden, setHidden] = useState(true)
     const { day_start, title, description, important, user_id, cal_month, cal_day, cal_year, cal_day_name, cal_month_name } = thisEvent
    
-   const dayIcon = cal_day_name ? dayIconPicker(cal_day_name) : ""
+   const dayIcon = cal_day_name ? dayIconPicker(cal_day_name) : false
 
    function deletePrompt() {
     setDeleteModalId(id)
@@ -49,7 +49,7 @@ function ShowPage() {
             
             <div className="show-details" >
                 {
-                    cal_day_name ? 
+                    dayIcon ? 
                     <img src={dayIconPicker(cal_day_name)} alt={cal_day_name} className="day-icon" /> : <CiImageOff size={"100px"} color={"aqua"} />
                 }
                 { day_start && <Calendar 
