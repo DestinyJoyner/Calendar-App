@@ -48,6 +48,7 @@ function daysInMonth(month, year, monthName) {
       dateArr.push(day_start)
      }
     })
+    dateArr.sort((a,b) => a < b ? -1 : 1 || 0 )
     return dateArr
 }
 
