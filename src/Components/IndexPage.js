@@ -46,9 +46,15 @@ function IndexPage() {
             <h3>Date</h3>
             <h3>Event</h3>
             <h3>Alert</h3>
+            <h3>{""}</h3>
             {userSchedule ?
                 userSchedule.map(obj => 
-                    <IndexMap key ={obj.id} obj={obj} todaysDate={todaysDate} />
+                    <IndexMap 
+                    key ={obj.id} 
+                    obj={obj} 
+                    todaysDate={todaysDate}
+                    userSchedule={userSchedule}
+                    setUserSchedule={setUserSchedule} />
                 ) :
                 <h4 className="no-schedule"> Add an Event Below</h4>
             }
