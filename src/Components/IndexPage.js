@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContextProvider } from "./Provider";
+import { upcomingDates } from "../Functions/helperFunctions";
 import IndexMap from "./IndexMap";
 import Upcoming from "./Upcoming";
 import Form from "../ReusableComponents/Form";
@@ -10,7 +11,7 @@ import "./IndexPage.css"
 function IndexPage() {
     const { API, axios, userAccess, user, todaysDate} = useContextProvider()
     const { cal_day, cal_day_name, cal_month, cal_month_name, cal_year } = todaysDate
-    const [userSchedule, setUserSchedule] = useState()
+    const [userSchedule, setUserSchedule] = useState([])
     const [hidden, setHidden] = useState(true)
 
     useEffect(() => {
@@ -51,9 +52,12 @@ function IndexPage() {
            
 
 
-
-           <Upcoming
-           userSchedule={userSchedule} />
+           {
+            userSchedule.length >0 &&
+            <Upcoming
+            userSchedule={userSchedule} />
+           }
+          
            <aside className="urgent">Urgent</aside>
         </div>
     );

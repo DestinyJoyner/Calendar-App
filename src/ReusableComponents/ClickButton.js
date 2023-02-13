@@ -4,10 +4,13 @@ function ClickButton({icon, onClick, style, value}) {
         <div className='hover-text'>
             <button 
             className= {style}
-            onClick={() => onClick()}>
+            onClick={(event) => onClick(event)}>
             {icon}
             </button>
-            <span>{value}</span>
+            {value &&
+                <span>{value}</span>
+            }
+            
        </div>
     );
 }

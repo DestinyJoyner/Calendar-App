@@ -39,15 +39,16 @@ function daysInMonth(month, year, monthName) {
     return date.join("/");
   }
 
-   // function for upcoming (not current day) events Max:3
-   function upcomingEvents (date, arr) {
-    const upcoming = arr.map(({day_start, title, id}, i) => {
-      // console.log(date < day_start)
-        // if(day_start > date ){
-        //     return <Link to ={`/index/${id}`}>{title}</Link>
-        // }
+   // function for grouping events by date 
+   function upcomingDates (arr) {
+    const dateArr = []
+    arr.forEach(({day_start}) => {
+      const date = day_start.slice(0,10)
+     if(!dateArr.includes(day_start)){
+      dateArr.push(day_start)
+     }
     })
-    return upcomingEvents
+    return dateArr
 }
 
 function handleTextChange(e, stateVar, setFunction) {
@@ -80,7 +81,7 @@ function dayIconPicker(string) {
     daysInMonth,
     gridColStart,
     convertDateStamp,
-    upcomingEvents,
+    upcomingDates,
     handleTextChange,
     handleCheckbox,
     dayIconPicker,

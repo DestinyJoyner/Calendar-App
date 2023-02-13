@@ -1,22 +1,20 @@
 import { useEffect, useState } from "react";
 import { useContextProvider } from "./Provider";
 import { HiOutlineClipboardList } from "react-icons/hi"
-import { upcomingEvents } from "../Functions/helperFunctions";
+import UpcomingDates from "./UpcomingDates";
 import "./Upcoming.css"
 
 function Upcoming({userSchedule}) {
     const {API, axios, todaysDate, date, user} = useContextProvider()
     const[happeningToday, setHappeningToday] = useState([])
-    // const upcoming = userSchedule[0] ? upcomingEvents(date, userSchedule) : []
-
-
+   
 
     useEffect(() => {
         axios.get(`${API}/calendar/${date}/schedule?userId=${user.userId}`)
         .then(({data}) => setHappeningToday(data))
         .catch(err=> console.log(err))
 
-    }, [])
+    }, [ userSchedule &&userSchedule.length])
 
     return (
         <aside className="upcoming">
@@ -28,10 +26,8 @@ function Upcoming({userSchedule}) {
                     <li>No scheduled events for today</li>
                 }
                 <br/>
-                <h5>Upcoming Events</h5>
-                {
-                    
-                }
+                <h5>Notable Dates</h5>
+                    <UpcomingDates userSchedule={userSchedule} />
 
             </section>
         </aside>
