@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useContextProvider } from "./Provider";
-import { dayIconPicker } from "../Functions/helperFunctions";
+import { dayIconPicker, convertDateStamp } from "../Functions/helperFunctions";
 import { HiBellAlert } from "react-icons/hi2"
 import { BsBellSlash } from "react-icons/bs"
 import { CiImageOff } from "react-icons/ci"
@@ -77,18 +77,19 @@ function ShowPage() {
                 </section>
              
                 <section className="show-info">
+                    <p>{ day_start && convertDateStamp(day_start)}</p>
                     <h2>
                         <span>Event: </span>
-                        {title}
+                        <span>{title}</span> 
                     </h2>
-                    <p>
-                        <span>Details: </span>
-                        {description}
-                    </p>
-                    <span>
-                        <span>Important?<br/></span>
-                        {important ? <HiBellAlert size={"50px"} color={"aqua"}/> : <BsBellSlash size={"50px"} color={"aqua"} />}
-                    </span>
+                    <h2>
+                        <span> Details: </span>
+                        <span>{description}</span>
+                    </h2>
+                    <h2>
+                        <span>Important?</span>
+                        <span>{important ? <HiBellAlert size={"50px"} color={"aqua"}/> : <BsBellSlash size={"50px"} color={"aqua"} />}</span>
+                    </h2>
                 </section>
 
                 {
