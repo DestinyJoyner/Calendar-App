@@ -74,6 +74,12 @@ function dayIconPicker(string) {
   if(day === "Saturday") return saturday
   if(day === "Sunday") return sunday
 }
+
+function compareDate (today, otherDate) {
+    const a = convertDateStamp(today.slice(0,10))
+    const b = convertDateStamp(otherDate.slice(0,10))
+    return a > b
+}
   
 
 
@@ -85,4 +91,5 @@ function dayIconPicker(string) {
     handleTextChange,
     handleCheckbox,
     dayIconPicker,
+    compareDate,
   }

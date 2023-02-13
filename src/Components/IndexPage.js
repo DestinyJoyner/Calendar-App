@@ -17,7 +17,10 @@ function IndexPage() {
     useEffect(() => {
         axios.get(`${API}/schedule?userId=${user.userId}`,)
         .then(({data}) => setUserSchedule(data))
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err)
+            setUserSchedule(false)
+        })
     },[user.userId, userSchedule &&userSchedule.length])
 
     return (
@@ -30,10 +33,11 @@ function IndexPage() {
             <h3>Date</h3>
             <h3>Event</h3>
             <h3>Alert</h3>
-            {userSchedule &&
+            {userSchedule ?
                 userSchedule.map(obj => 
-                    <IndexMap key ={obj.id} obj={obj} />
-                )
+                    <IndexMap key ={obj.id} obj={obj} todaysDate={todaysDate} />
+                ) :
+                <h4 className="no-schedule"> Add an Event Below</h4>
             }
         
            </div>
