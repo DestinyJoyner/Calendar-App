@@ -13,7 +13,7 @@
 .userDates .dateEvents {
     margin-top: 5%;
     display: grid;
-    grid-auto-rows: 35px;
+    grid-auto-rows: 80px;
     border: 1px solid black;
     width: 85%;
     height: 20vh;
@@ -30,6 +30,6 @@
 }
 
 .userDates .dateEvents a:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     color: aqua;
 }
