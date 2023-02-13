@@ -1,0 +1,35 @@
+
+.userDates .hover-text button {
+    height: 30px;
+    width: 60%;
+    font-size: 18px;
+    background-color: aqua;
+    color: rgb(62, 62, 62);
+    box-shadow: unset;
+    border: black 2px solid;
+    margin-bottom: 2%;
+}
+
+.userDates .dateEvents {
+    margin-top: 5%;
+    display: grid;
+    grid-auto-rows: 35px;
+    border: 1px solid black;
+    width: 85%;
+    height: 20vh;
+    max-height: 25vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.713);
+}
+
+.userDates .dateEvents a {
+    margin-top: 10%;
+    margin-left: 10%;
+    font-size: 22px;
+    color: lightgray;
+}
+
+.userDates .dateEvents a:hover {
+    transform: scale(1.1);
+    color: aqua;
+}
