@@ -4,7 +4,7 @@ import { HiBellAlert } from "react-icons/hi2"
 
 function IndexMap({obj, todaysDate}) {
     const {day_start, title, important, id} = obj
-    const pastDate = day_start ? compareDate(todaysDate.cal_date, day_start) : false
+    const pastDate = day_start && todaysDate.cal_date ? compareDate(todaysDate.cal_date, day_start) : false
 
     return ( day_start &&
         <>
