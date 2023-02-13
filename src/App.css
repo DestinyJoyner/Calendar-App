@@ -22,6 +22,34 @@
     position: relative;
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.893);
+    z-index: 1000;
+  }
+
+  .deleteModal, .loginModal {
+    position: relative;
+    width: 60%;
+    height: 50%;
+    top: 15%;
+    left: 20%;
+    z-index: 1000;
+    text-align: center;
+    display: grid;
+    background-color: rgba(169, 169, 169, 0.872);
+    border: 2px solid aqua;
+  }
+
+  .deleteModal h3, .loginModal h3 {
+    font-size: 50px;
+    margin-top: 10%;
+  }
+
 .dark {
     background-color: rgb(6, 6, 47);
     color:  #FDFEFF;
