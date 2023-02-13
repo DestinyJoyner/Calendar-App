@@ -1,21 +1,16 @@
 import { useState } from "react";
-import { useContextProvider } from "./Provider";
 import { Link } from "react-router-dom";
 import ClickButton from "../ReusableComponents/ClickButton";
 import { upcomingDates, convertDateStamp } from "../Functions/helperFunctions";
 import "./UpcomingDates.css"
 
 function UpcomingDates({userSchedule}) {
-    const { API, axios, user} = useContextProvider()
     const [scheduledDates, setScheduledDates] = useState(upcomingDates(userSchedule))
     const [thisDateEvent, setThisDateEvent] = useState([])
     const [hidden, setHidden] = useState(true)
    
     function eventsOnThisDate(e) {
         setHidden(false)
-        console.log(e)
-        // e.target.style.backgroundColor= "black"
-        // e.target.style.color= "aqua"
         const thisDate = e.target.innerText
         const eventsOnDate = userSchedule.filter(({day_start}) => 
             convertDateStamp(day_start) === thisDate     
@@ -31,7 +26,8 @@ function UpcomingDates({userSchedule}) {
                  <ClickButton
                  icon={convertDateStamp(el)}
                  onClick={eventsOnThisDate}
-                 key={i} />)
+                 key={i}
+                 style={"date-button-unclicked"} />)
             }
             <section className="dateEvents">
                 { !hidden &&
