@@ -24,46 +24,54 @@ function Login({width, height}) {
           userName: userName,
           password: passValue,
         })
-        .then(({ data }) => {
-          setUserAccess(true);
-          setUser({
-            userName : data.userName,
-            userId: data.userId
-          })
-          window.localStorage.setItem("token", data.jwt)
-          window.localStorage.setItem('user', JSON.stringify({
-            userName : data.userName,
-            userId: data.userId
-          }))
-          navigate("/index");
-        })
+        .then(({ data }) => data
+        )
         .catch((err) => {
           console.log(err)
           // alert(err.response.data)
           setUserName("")
           setPassValue("")
         });
+
+        // after await tokenValue variable
+        setUserAccess(true);
+          setUser({
+            userName : tokenValue.userName,
+            userId: tokenValue.userId
+          })
+          window.localStorage.setItem("token", tokenValue.jwt)
+          window.localStorage.setItem('user', JSON.stringify({
+            userName : tokenValue.userName,
+            userId: tokenValue.userId
+          }))
+          navigate("/index")
     }
-    // if (button === "register") {
-    //   const tokenValue = await axios.post(`${API}/register`, {
-    //       userName: userName,
-    //       password: passValue,
-    //     })
-    //     .then(({ data }) => {
-    //       setToken(data)
-    //       window.localStorage.setItem("token", JSON.stringify({
-    //         token: data.token,
-    //         userId: data.id,
-    //         userName: data.userName
-    //       }));
-    //       navigate("/index")
-    //     })
-    //     .catch((err) => {
-    //       alert(err.response.data)
-    //       setUserName("")
-    //       setPassValue("")
-    //     })
-    // }
+    if (button === "register") {
+      const tokenValue = await axios.post(`${API}/register`, {
+          userName: userName,
+          password: passValue,
+        })
+        .then(({ data }) => data)
+        .catch((err) => {
+          console.log(err.response.data)
+          // alert(err.response.data)
+          setUserName("")
+          setPassValue("")
+        })
+
+        // ater await value for tokenValue
+        setUserAccess(true);
+          setUser({
+            userName : tokenValue.userName,
+            userId: tokenValue.userId
+          })
+          window.localStorage.setItem("token", tokenValue.jwt)
+          window.localStorage.setItem('user', JSON.stringify({
+            userName : tokenValue.userName,
+            userId: tokenValue.userId
+          }))
+          navigate("/index")
+    }
   }
 
   return (

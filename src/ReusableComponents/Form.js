@@ -29,7 +29,13 @@ function Form({stateVar, setFunction, buttonToggle}) {
         else{
             axios.post(`${API}/schedule?userId=${user.userId}`, form)
             .then(({data}) => {
-                setFunction([...stateVar, data])
+                if(!stateVar){
+                    setFunction([data])
+                }
+                else{
+                    setFunction([...stateVar, data])
+                }
+                
                 setChecked(false)
                 buttonToggle(true)
                 setForm({
@@ -40,10 +46,9 @@ function Form({stateVar, setFunction, buttonToggle}) {
                     user_id: user.userId
                 })
             })
-            .catch(({response}) => {
-                const { data } = response
-                console.log(data.errors)
-            })
+            .catch(err => 
+                console.log(err)
+            )
         }
     }
 
