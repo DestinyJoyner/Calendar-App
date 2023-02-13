@@ -34,6 +34,7 @@ function Provider({children}) {
     const [deleteModal, setDeleteModal] = useState(false)
     // state to store id value of event to be deleted
     const [deleteModalId, setDeleteModalId] = useState("")
+   
     
     // useEffect to check current session of user still active i.e token = true
     useEffect(() => {
@@ -73,6 +74,7 @@ function Provider({children}) {
         <Nav />
         {userAccess && <UserInfo />}
         {deleteModal && <DeleteModal />}
+        
         {children}
        </ContextData.Provider>
     </div>

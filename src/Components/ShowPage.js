@@ -11,6 +11,7 @@ import ClickButton from "../ReusableComponents/ClickButton";
 import ToggleButton from "../ReusableComponents/ToggleButton";
 import Calendar from "../ReusableComponents/Calendar";
 import Form from "../ReusableComponents/Form";
+import AccessModal from "./AccessModal";
 import "./ShowPage.css"
 
 function ShowPage() {
@@ -37,6 +38,10 @@ function ShowPage() {
         .then(({data}) => setThisEvent(data))
         .catch(err => console.log(err))
     },[id, thisEvent.day_start])
+
+    if(!userAccess){
+        return <AccessModal />
+    }
 
     return ( 
         <div className="show center">

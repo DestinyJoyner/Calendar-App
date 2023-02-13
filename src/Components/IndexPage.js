@@ -6,6 +6,7 @@ import IndexMap from "./IndexMap";
 import Upcoming from "./Upcoming";
 import Form from "../ReusableComponents/Form";
 import ToggleButton from "../ReusableComponents/ToggleButton";
+import AccessModal from "./AccessModal";
 import "./IndexPage.css"
 
 function IndexPage() {
@@ -13,6 +14,8 @@ function IndexPage() {
     const { cal_day, cal_day_name, cal_month, cal_month_name, cal_year } = todaysDate
     const [userSchedule, setUserSchedule] = useState([])
     const [hidden, setHidden] = useState(true)
+
+  
 
     useEffect(() => {
         axios.get(`${API}/schedule?userId=${user.userId}`,)
@@ -22,6 +25,10 @@ function IndexPage() {
             setUserSchedule(false)
         })
     },[user.userId, userSchedule &&userSchedule.length])
+
+    if(!userAccess){
+        return <AccessModal />
+    }
 
     return (
         <div className="index center">
