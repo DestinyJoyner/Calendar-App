@@ -1,0 +1,23 @@
+.loginModal {
+    justify-items: center;
+}
+.loginModal h3{
+    margin: unset;
+    font-size: 45px;
+}
+
+.loginModal p {
+    font-size: 40px;
+    color: red;
+}
+
+.loginModal img {
+    height: 120px;
+}
+
+.loginModal span .hover-text button {
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+    margin-left: 2%;
+}

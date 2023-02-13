@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useContextProvider } from "./Provider";
-import { dayIconPicker } from "../Functions/helperFunctions";
+import { dayIconPicker, convertDateStamp } from "../Functions/helperFunctions";
 import { HiBellAlert } from "react-icons/hi2"
 import { BsBellSlash } from "react-icons/bs"
 import { CiImageOff } from "react-icons/ci"
@@ -11,6 +11,7 @@ import ClickButton from "../ReusableComponents/ClickButton";
 import ToggleButton from "../ReusableComponents/ToggleButton";
 import Calendar from "../ReusableComponents/Calendar";
 import Form from "../ReusableComponents/Form";
+import AccessModal from "./AccessModal";
 import "./ShowPage.css"
 
 function ShowPage() {
@@ -21,7 +22,7 @@ function ShowPage() {
     const [hidden, setHidden] = useState(true)
     const { day_start, title, description, important, user_id, cal_month, cal_day, cal_year, cal_day_name, cal_month_name } = thisEvent
    
-   const dayIcon = cal_day_name ? dayIconPicker(cal_day_name) : ""
+   const dayIcon = cal_day_name ? dayIconPicker(cal_day_name) : false
 
    function deletePrompt() {
     setDeleteModalId(id)
@@ -38,13 +39,17 @@ function ShowPage() {
         .catch(err => console.log(err))
     },[id, thisEvent.day_start])
 
+    if(!userAccess){
+        return <AccessModal />
+    }
+
     return ( 
         <div className="show center">
             <h1>{cal_day_name} {cal_month_name} {cal_day} {cal_year}</h1>
             
             <div className="show-details" >
                 {
-                    cal_day_name ? 
+                    dayIcon ? 
                     <img src={dayIconPicker(cal_day_name)} alt={cal_day_name} className="day-icon" /> : <CiImageOff size={"100px"} color={"aqua"} />
                 }
                 { day_start && <Calendar 
@@ -72,18 +77,19 @@ function ShowPage() {
                 </section>
              
                 <section className="show-info">
+                    <p>{ day_start && convertDateStamp(day_start)}</p>
                     <h2>
                         <span>Event: </span>
-                        {title}
+                        <span>{title}</span> 
                     </h2>
-                    <p>
-                        <span>Details: </span>
-                        {description}
-                    </p>
-                    <span>
-                        <span>Important?<br/></span>
-                        {important ? <HiBellAlert size={"50px"} color={"aqua"}/> : <BsBellSlash size={"50px"} color={"aqua"} />}
-                    </span>
+                    <h2>
+                        <span> Details: </span>
+                        <span>{description}</span>
+                    </h2>
+                    <h2>
+                        <span>Important?</span>
+                        <span>{important ? <HiBellAlert size={"50px"} color={"aqua"}/> : <BsBellSlash size={"50px"} color={"aqua"} />}</span>
+                    </h2>
                 </section>
 
                 {

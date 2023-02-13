@@ -6,6 +6,7 @@ import IndexMap from "./IndexMap";
 import Upcoming from "./Upcoming";
 import Form from "../ReusableComponents/Form";
 import ToggleButton from "../ReusableComponents/ToggleButton";
+import AccessModal from "./AccessModal";
 import "./IndexPage.css"
 
 function IndexPage() {
@@ -14,11 +15,26 @@ function IndexPage() {
     const [userSchedule, setUserSchedule] = useState([])
     const [hidden, setHidden] = useState(true)
 
+  
+
     useEffect(() => {
         axios.get(`${API}/schedule?userId=${user.userId}`,)
-        .then(({data}) => setUserSchedule(data))
-        .catch(err => console.log(err))
+        .then(({data}) =>{
+            if(!data){
+                setUserSchedule(false)
+            }
+            else{
+                setUserSchedule(data)
+            }   
+        } 
+        )
+        .catch(err => console.log(err)
+        )
     },[user.userId, userSchedule &&userSchedule.length])
+
+    if(!userAccess){
+        return <AccessModal />
+    }
 
     return (
         <div className="index center">
@@ -30,10 +46,17 @@ function IndexPage() {
             <h3>Date</h3>
             <h3>Event</h3>
             <h3>Alert</h3>
-            {userSchedule &&
+            <h3>{""}</h3>
+            {userSchedule ?
                 userSchedule.map(obj => 
-                    <IndexMap key ={obj.id} obj={obj} />
-                )
+                    <IndexMap 
+                    key ={obj.id} 
+                    obj={obj} 
+                    todaysDate={todaysDate}
+                    userSchedule={userSchedule}
+                    setUserSchedule={setUserSchedule} />
+                ) :
+                <h4 className="no-schedule"> Add an Event Below</h4>
             }
         
            </div>
@@ -53,7 +76,7 @@ function IndexPage() {
 
 
            {
-            userSchedule.length >0 &&
+            userSchedule.length > 0 &&
             <Upcoming
             userSchedule={userSchedule} />
            }

@@ -2,19 +2,34 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContextProvider } from "../Components/Provider";
 import UserForm from "../ReusableComponents/UserForm";
+import LoginModal from "../Components/LoginModal";
 import "./Login.css"
-
-// testing tokens and headers 
-
 
 function Login({width, height}) {
   const { API, axios, setUserAccess, setUser } = useContextProvider();
-
   const [userName, setUserName] = useState("");
   const [passValue, setPassValue] = useState("");
   // declare state for which submit button was pressed
   const [button, setButton] = useState("");
+  // declare state for Login Modal
+  const [loginModal, setLoginModal] = useState(false)
+  // state for error message from catch
+  const [errorMessage, setErrorMessage] = useState("")
   const navigate = useNavigate();
+
+  function successLogin(value) {
+    setUserAccess(true);
+          setUser({
+            userName : value.userName,
+            userId: value.userId
+          })
+          window.localStorage.setItem("token", value.jwt)
+          window.localStorage.setItem('user', JSON.stringify({
+            userName : value.userName,
+            userId: value.userId
+          }))
+          // navigate("/index")
+  }
 
   //function for adding/ registering user
   async function signIn(e) {
@@ -27,24 +42,19 @@ function Login({width, height}) {
         .then(({ data }) => data
         )
         .catch((err) => {
-          console.log(err)
-          // alert(err.response.data)
-          setUserName("")
-          setPassValue("")
+          if(!err.response.data){
+            navigate("/*")
+          }
+          else {
+            setErrorMessage(err.response.data)
+            setLoginModal(true)
+          }
         });
 
         // after await tokenValue variable
-        setUserAccess(true);
-          setUser({
-            userName : tokenValue.userName,
-            userId: tokenValue.userId
-          })
-          window.localStorage.setItem("token", tokenValue.jwt)
-          window.localStorage.setItem('user', JSON.stringify({
-            userName : tokenValue.userName,
-            userId: tokenValue.userId
-          }))
-          navigate("/index")
+        if(tokenValue){
+         successLogin(tokenValue)
+        }  
     }
     if (button === "register") {
       const tokenValue = await axios.post(`${API}/register`, {
@@ -53,31 +63,24 @@ function Login({width, height}) {
         })
         .then(({ data }) => data)
         .catch((err) => {
-          console.log(err.response.data)
-          // alert(err.response.data)
-          setUserName("")
-          setPassValue("")
+          if(!err.response.data){
+            navigate("/*")
+          }
+          else {
+            setErrorMessage(err.response.data)
+            setLoginModal(true)
+          }
         })
 
-        // ater await value for tokenValue
-        setUserAccess(true);
-          setUser({
-            userName : tokenValue.userName,
-            userId: tokenValue.userId
-          })
-          window.localStorage.setItem("token", tokenValue.jwt)
-          window.localStorage.setItem('user', JSON.stringify({
-            userName : tokenValue.userName,
-            userId: tokenValue.userId
-          }))
-          navigate("/index")
+        if(tokenValue){
+          successLogin(tokenValue)
+         }
     }
   }
 
   return (
     <div className="login"
     style={{height:height, width:width}}>
-      {/* <h2>Login</h2> */}
 
       <UserForm
         stateVar1={userName}
@@ -87,6 +90,14 @@ function Login({width, height}) {
         submitFunction={signIn}
         setButton={setButton}
       />
+      {
+        loginModal && 
+        <LoginModal
+        errorMessage={errorMessage}
+        setUserName = {setUserName}
+        setPassValue={setPassValue}
+        setLoginModal={setLoginModal} />
+      }
     </div>
   );
 }

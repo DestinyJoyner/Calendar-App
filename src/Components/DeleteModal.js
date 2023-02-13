@@ -4,7 +4,7 @@ import ClickButton from "../ReusableComponents/ClickButton";
 import { BsFillCalendarCheckFill, BsFillXSquareFill } from "react-icons/bs"
 import "./DeleteModal.css"
 
-function DeleteModal() {
+function DeleteModal({stateVar, setFunction}) {
     const { API, axios, setDeleteModal, deleteModalId, user } = useContextProvider()
     const navigate = useNavigate()
 

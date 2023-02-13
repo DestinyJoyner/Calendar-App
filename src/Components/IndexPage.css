@@ -41,7 +41,7 @@
     max-height: 100%;
     display: grid;
     align-items: center;
-    grid-template-columns: 20% 65% 15%;
+    grid-template-columns: 20% 60% 10% 10%;
     grid-template-rows: 50px;
     grid-auto-rows: 55px;
     justify-items: center;
@@ -66,6 +66,17 @@
 .index-list a:hover {
     transform: scale(1.1);
     text-decoration: underline;
+}
+
+.index-list button {
+    all: unset;
+}
+
+.index-list .no-schedule {
+    grid-column: span 3;
+    grid-row: 2;
+    justify-self: center;
+    color: aqua;
 }
 
 .index .hover-text {

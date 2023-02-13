@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ClickButton from "../ReusableComponents/ClickButton";
 import { upcomingDates, convertDateStamp } from "../Functions/helperFunctions";
@@ -17,6 +17,10 @@ function UpcomingDates({userSchedule}) {
         )
         setThisDateEvent(eventsOnDate)
     }
+
+    useEffect(() => {
+        setScheduledDates(upcomingDates(userSchedule))
+    }, [userSchedule.length])
 
     return (
         <div className="userDates">
