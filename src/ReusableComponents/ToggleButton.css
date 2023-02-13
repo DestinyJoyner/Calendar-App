@@ -5,7 +5,7 @@
 
 .hover-text span {
     visibility: hidden;
-    width: 200px;
+    width: fit-content;
     font-size: 20px;
     background-color: rgba(0, 0, 0, 0.94);
     color: aqua;

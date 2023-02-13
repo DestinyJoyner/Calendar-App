@@ -11,7 +11,14 @@ function Upcoming({userSchedule}) {
 
     useEffect(() => {
         axios.get(`${API}/calendar/${date}/schedule?userId=${user.userId}`)
-        .then(({data}) => setHappeningToday(data))
+        .then(({data}) => {
+            if(!data){
+                setHappeningToday(false)
+            }
+            else(
+                setHappeningToday(data)
+            )
+            })
         .catch(err=> console.log(err))
 
     }, [ userSchedule &&userSchedule.length])
@@ -21,7 +28,7 @@ function Upcoming({userSchedule}) {
             <section className="happening-today">
                 <h5>Today's Events</h5>
                 {
-                    happeningToday[0] ?
+                    happeningToday ?
                     happeningToday.map(({title, id}) => <li key ={id}><HiOutlineClipboardList color={"aqua"} size={"15px"} />{"  "}{title}</li>) :
                     <li>No scheduled events for today</li>
                 }

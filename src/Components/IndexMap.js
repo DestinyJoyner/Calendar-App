@@ -4,11 +4,11 @@ import { HiBellAlert } from "react-icons/hi2"
 
 function IndexMap({obj, todaysDate}) {
     const {day_start, title, important, id} = obj
-    const pastDate = compareDate(todaysDate.cal_date, day_start)
+    const pastDate = obj.day_start ? compareDate(todaysDate.cal_date, day_start) : false
 
-    return (
+    return ( day_start &&
         <>
-        <span>{convertDateStamp(day_start)}</span>
+        <span>{ convertDateStamp(day_start)}</span>
         <Link 
         to={`/index/${id}`}>
             <span

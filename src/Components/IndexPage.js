@@ -19,11 +19,17 @@ function IndexPage() {
 
     useEffect(() => {
         axios.get(`${API}/schedule?userId=${user.userId}`,)
-        .then(({data}) => setUserSchedule(data))
-        .catch(err => {
-            console.log(err)
-            setUserSchedule(false)
-        })
+        .then(({data}) =>{
+            if(!data){
+                setUserSchedule(false)
+            }
+            else{
+                setUserSchedule(data)
+            }   
+        } 
+        )
+        .catch(err => console.log(err)
+        )
     },[user.userId, userSchedule &&userSchedule.length])
 
     if(!userAccess){
@@ -64,7 +70,7 @@ function IndexPage() {
 
 
            {
-            userSchedule.length >0 &&
+            userSchedule.length > 0 &&
             <Upcoming
             userSchedule={userSchedule} />
            }
