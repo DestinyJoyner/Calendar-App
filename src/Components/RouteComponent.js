@@ -18,7 +18,6 @@ function RouteComponent() {
                     <Route path = "new" element={<New />} />
                     <Route path = ":id" element = {<Show />} />
                 </Route>
-
             </Route>
             <Route path="*" element={<h1>Error</h1>} />
         </Routes>
