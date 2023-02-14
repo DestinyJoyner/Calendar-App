@@ -1,17 +1,26 @@
 .show {
-    margin-top: 5%;
-    width: 75%;
-    height: 75%;
+    margin-top: 2%;
+    width: 90%;
+    height: 80%;
     padding-bottom: 7%;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    grid-template-rows: 10%;
 }
 
-.show h1 {
+.show .show-header {
     font-size: 40px;
     text-align: center;
+    grid-column: span 2;
+    align-self: center;
+}
+
+.show .animated-background {
+    margin-left: 25%;
 }
 
 .show-details {
-    margin-top: 3%;
+    /* margin-top: 3%; */
     border: 2px solid black;
     background-color: rgba(66, 65, 65, 0.734) ;
     box-shadow: 5px 5px 100px aqua;

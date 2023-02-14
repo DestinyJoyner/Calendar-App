@@ -6,6 +6,7 @@ import Upcoming from "./Upcoming";
 import Form from "../ReusableComponents/Form";
 import ToggleButton from "../ReusableComponents/ToggleButton";
 import AccessModal from "./AccessModal";
+import AnimatedBackground from "../ReusableComponents/AnimatedBackground";
 import "./IndexPage.css"
 
 function IndexPage() {
@@ -77,8 +78,9 @@ function IndexPage() {
             <Upcoming
             userSchedule={userSchedule} />
            }
+
+           <AnimatedBackground />
           
-           <aside className="urgent">Urgent</aside>
         </div>
     );
 }
