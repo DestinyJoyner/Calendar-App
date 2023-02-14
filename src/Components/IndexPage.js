@@ -10,11 +10,14 @@ import AnimatedBackground from "../ReusableComponents/AnimatedBackground";
 import "./IndexPage.css"
 
 function IndexPage() {
-    const { API, axios, userAccess, user, todaysDate} = useContextProvider()
+    const { API, axios, userAccess, user, todaysDate, setToken} = useContextProvider()
     const { cal_day, cal_day_name, cal_month, cal_month_name, cal_year } = todaysDate
     const [userSchedule, setUserSchedule] = useState([])
     const [hidden, setHidden] = useState(true)
     const navigate = useNavigate()
+
+    // test token
+    const tokenValue = window.localStorage.getItem('token')
 
   
 
@@ -30,7 +33,7 @@ function IndexPage() {
         } 
         )
         .catch(err => console.log(err))
-    },[user.userId, userSchedule &&userSchedule.length])
+    },[user.userId, userSchedule &&userSchedule.length, tokenValue])
 
     if(!userAccess){
         return <AccessModal />
