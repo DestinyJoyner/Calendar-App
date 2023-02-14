@@ -5,7 +5,8 @@
     display: grid;
     grid-template-columns: 1fr .8fr;
     grid-template-rows: repeat(3, 1fr);
-    justify-items: left;
+    /* justify-items: left; */
+    justify-items: center;
     align-items: center;
     font-size: 26px;
     letter-spacing: 1px;

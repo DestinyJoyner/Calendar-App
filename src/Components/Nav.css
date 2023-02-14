@@ -113,7 +113,7 @@
   }
   
   input:checked + .slider {
-    background-color: rgb(9, 9, 50);
+    background-color: aqua;
   }
   
   input:focus + .slider {
