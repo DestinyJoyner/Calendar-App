@@ -5,6 +5,7 @@ import Show from "../Pages/Show";
 import Edit from "../Pages/Edit"
 import New from "../Pages/New"
 import About from "../Pages/About"
+import Error from "../Pages/Error";
 
 
 function RouteComponent() {
@@ -19,7 +20,7 @@ function RouteComponent() {
                     <Route path = ":id" element = {<Show />} />
                 </Route>
             </Route>
-            <Route path="*" element={<h1>Error</h1>} />
+            <Route path="*" element={<Error />} />
         </Routes>
     );
 }

@@ -36,7 +36,7 @@ function ShowPage() {
     useEffect(() => {
         axios.get(`${API}/schedule/${id}?userId=${user_id}`)
         .then(({data}) => setThisEvent(data))
-        .catch(err => console.log(err))
+        .catch(err => navigate("/*"))
     },[id, thisEvent.day_start])
 
     if(!userAccess){
