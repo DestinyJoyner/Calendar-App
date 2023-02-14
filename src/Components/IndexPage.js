@@ -28,7 +28,7 @@ function IndexPage() {
             }   
         } 
         )
-        .catch(err => navigate("/*"))
+        .catch(err => console.log(err))
     },[user.userId, userSchedule &&userSchedule.length])
 
     if(!userAccess){
