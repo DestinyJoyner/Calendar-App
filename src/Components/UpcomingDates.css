@@ -15,11 +15,13 @@
     display: grid;
     grid-auto-rows: 80px;
     border: 1px solid black;
-    width: 85%;
+    width: 80%;
     height: 20vh;
     max-height: 25vh;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.713);
+    box-shadow: 1px 1px 10px aqua;
+    margin-left: 2%;
 }
 
 .userDates .dateEvents a {
