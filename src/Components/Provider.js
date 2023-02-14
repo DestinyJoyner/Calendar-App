@@ -50,7 +50,7 @@ function Provider({children}) {
         // get and set token state
         const tokenValue = window.localStorage.getItem('token')
         if(tokenValue){setToken(tokenValue)}
-    }, [])
+    }, [user.userId])
     
     useEffect(() =>{
         window.scrollTo(0, 0)

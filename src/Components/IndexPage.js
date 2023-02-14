@@ -22,6 +22,8 @@ function IndexPage() {
   
 
     useEffect(() => {
+        const tokenValue = window.localStorage.getItem('token')
+        setToken(tokenValue)
         axios.get(`${API}/schedule?userId=${user.userId}`,)
         .then(({data}) =>{
             if(!data){
