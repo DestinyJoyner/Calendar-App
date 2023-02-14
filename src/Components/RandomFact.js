@@ -11,18 +11,18 @@ function RandomFact() {
     /* 
         - need to omit default axios header for this call 
         - create a new instance of axios and remove the default header from it
-        - api -> http://numbersapi.com/#42
+        - api -> http://numbersapi.com/#42 <- not secure
+        - random of the day https://uselessfacts.jsph.pl/
     */
-    // useEffect(() => {
-    //     const newAxios = axios.create()
-    //     delete newAxios.defaults.headers.common['Authorization']
-    //     if(cal_month && cal_day){
-    //         newAxios.get(`http://numbersapi.com/${cal_month}/${cal_day}/date`)
-    //         .then(({data})=> setRandomFact(data))
-    //         .catch(err => console.log(err))
-    //     }
-        
-    // },[cal_day])
+    useEffect(() => {
+        const newAxios = axios.create()
+        delete newAxios.defaults.headers.common['Authorization']
+      
+            newAxios.get("https://uselessfacts.jsph.pl/today.json?language=en")
+            .then(({data})=> setRandomFact(data.text))
+            .catch(err => console.log(err))
+
+    },[])
 
     return (
         <div className="random">
