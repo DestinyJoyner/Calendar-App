@@ -5,5 +5,5 @@
 [Backend Repo](https://github.com/DestinyJoyner/Pern-Portfolio-Backend)
 [Deployed Backend](https://pern-portfolio-calendar-app.onrender.com/)
 
-<img src="/public/readme-screenshot.png" alt="screenshot"  width="400"/>
-![Calendar-App-Screenshot](/public/readme-screenshot.png)
+<img src="/public/readme-screenshot.png" alt="screenshot"  width="500"/>
+
