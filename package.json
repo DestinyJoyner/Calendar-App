@@ -12,7 +12,8 @@
     "react-scripts": "5.0.1",
     "react-token-auth": "^2.3.8",
     "serve": "^11.3.2",
-    "uid-generator": "^2.0.0"
+    "uid-generator": "^2.0.0",
+    "use-sound": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

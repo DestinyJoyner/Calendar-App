@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useContextProvider } from "../Components/Provider";
-import { handleTextChange, handleCheckbox, convertDateStamp } from "../Functions/helperFunctions";
+import { handleTextChange, handleCheckbox } from "../Functions/helperFunctions";
 import "./Form.css"
 
 function Form({stateVar, setFunction, buttonToggle, formPage}) {

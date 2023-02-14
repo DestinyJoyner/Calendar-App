@@ -1,5 +1,6 @@
 import { BsGithub } from "react-icons/bs"
 import{ AiOutlineLinkedin } from "react-icons/ai"
+import UseSound from "../ReusableComponents/UseSound"
 
 import { TfiEmail } from "react-icons/tfi"
 import "./AboutPage.css"
@@ -31,6 +32,7 @@ function AboutPage() {
                     size={"40px"} />
                 </a>
             </section>
+            <UseSound />
         </div>
     );
 }
