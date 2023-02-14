@@ -11,9 +11,8 @@ export function useContextProvider() {
     return useContext(ContextData)
 }
 const API = process.env.REACT_APP_API_URL
-// declare default header value to be included in all axios calls (token from localStorage(temporary use))
-const token = window.localStorage.getItem('token')
-axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+// const tokenValue = window.localStorage.getItem('token')
+// axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 const userStored = JSON.parse(window.localStorage.getItem('user'))
 
 function Provider({children}) {
@@ -23,6 +22,8 @@ function Provider({children}) {
     const dateObj = new Date()
     const date = dateObj.toLocaleString("en-US", {timeZone: "America/New_York"}).split(',').join(``).replaceAll("/","-").split(` `)[0]
    
+    // test state instead to hold token
+    const [token, setToken] = useState(window.localStorage.getItem('token'))
     const [darkMode, setDarkMode] = useState(false)
     const [navbar, setNavBar] = useState(false)
     // declare state to hold obj with values of today's date
@@ -35,6 +36,9 @@ function Provider({children}) {
     const [deleteModal, setDeleteModal] = useState(false)
     // state to store id value of event to be deleted
     const [deleteModalId, setDeleteModalId] = useState("")
+
+    // declare default header value to be included in all axios calls (token from localStorage(temporary use))
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
    
     // useEffect to check current session of user still active i.e token = true
     useEffect(() => {
@@ -42,6 +46,10 @@ function Provider({children}) {
         axios.get(`${API}/calendar/${date}`)
         .then(({data}) => setTodaysDate(data))
         .catch(err => console.log(err))
+
+        // get and set token state
+        const tokenValue = window.localStorage.getItem('token')
+        if(tokenValue){setToken(tokenValue)}
     }, [])
     
     useEffect(() =>{
@@ -69,6 +77,8 @@ function Provider({children}) {
         setDeleteModal,
         deleteModalId,
         setDeleteModalId,
+        token,
+        setToken,
 
        }}>
         <Nav />
