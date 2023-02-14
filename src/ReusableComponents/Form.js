@@ -25,7 +25,7 @@ function Form({stateVar, setFunction, buttonToggle, formPage}) {
                 setFunction(data)
                 buttonToggle(true)
             })
-            .catch(err => console.log(err))
+            .catch(err => navigate("/*"))
         }
         else{
             axios.post(`${API}/schedule?userId=${user.userId}`, form)
@@ -51,12 +51,8 @@ function Form({stateVar, setFunction, buttonToggle, formPage}) {
                         user_id: user.userId
                     })
                 }
-               
-                
             })
-            .catch(err => 
-                console.log(err)
-            )
+            .catch(err => navigate("/*"))
         }
     }
 

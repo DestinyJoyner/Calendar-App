@@ -9,7 +9,7 @@
 }
 
 .App {
-    background-color: darkgrey;
+    background-color: darkgrey;  
     /* overflow-y:auto; */
 }
 
@@ -63,7 +63,6 @@
     0 0 0.4vw 0.1vw #fff,
     0 0 1vw .1vw aqua;
     background-color: rgba(0, 0, 0, 0.825);
-    
 }
 
 .dark .nav nav a {
