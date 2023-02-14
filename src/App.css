@@ -56,6 +56,28 @@
     letter-spacing: 1px;
 }
 
+.dark .nav nav {
+    border: 1px solid white;
+    box-shadow:  
+    0 0 0.1vw 0.2vw aqua,
+    0 0 0.4vw 0.1vw #fff,
+    0 0 1vw .1vw aqua;
+    background-color: rgba(0, 0, 0, 0.825);
+    
+}
+
+.dark .nav nav a {
+    color: #F9FBFF;
+    text-shadow:
+        0 0 7px aqua,
+        0 0 21px aqua,
+        0 0 42px aqua;
+}
+
+.dark .userInfo {
+    border: 1px solid aqua;
+}
+
 button, .login form, .square1, .square2, .square3, nav,  input[type=submit], .show-buttons .toggle-button, .delete, .go-back, .random p {
     color: #F9FBFF;
     font-family: PoiretOne;
