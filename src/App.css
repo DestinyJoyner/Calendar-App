@@ -65,7 +65,7 @@
         letter-spacing: 2px;
 }
 
-button, .login form, .square1, .square2, .square3, nav,  input[type=submit], .show-buttons .toggle-button, .delete, .go-back {
+button, .login form, .square1, .square2, .square3, nav,  input[type=submit], .show-buttons .toggle-button, .delete, .go-back, .random p {
     color: #F9FBFF;
     font-family: PoiretOne;
     border: 1px solid white;

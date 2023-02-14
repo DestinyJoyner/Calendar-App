@@ -1,0 +1,16 @@
+.random {
+    position: relative;
+    left: 28%;
+    top: 3%;
+    width: 50%;
+    height: 5%;
+    font-size: 22px;
+    text-align: center;
+    line-height: 26px;
+}
+
+.random p {
+    display: grid;
+    grid-template-columns: .2fr 1fr;
+    align-items: center;
+}

@@ -1,9 +1,8 @@
-import Form from "../ReusableComponents/Form";
+import NewForm from "../Components/NewForm";
+
 function New() {
     return (
-        <div className="new">
-            <Form formPage={true} /> 
-        </div>
+       <NewForm />
     );
 }
 
