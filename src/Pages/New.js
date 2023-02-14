@@ -1,9 +1,8 @@
+import NewForm from "../Components/NewForm";
 
 function New() {
     return (
-        <div>
-            
-        </div>
+       <NewForm />
     );
 }
 

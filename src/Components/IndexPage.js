@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContextProvider } from "./Provider";
-import { upcomingDates } from "../Functions/helperFunctions";
 import IndexMap from "./IndexMap";
 import Upcoming from "./Upcoming";
 import Form from "../ReusableComponents/Form";
@@ -14,6 +13,7 @@ function IndexPage() {
     const { cal_day, cal_day_name, cal_month, cal_month_name, cal_year } = todaysDate
     const [userSchedule, setUserSchedule] = useState([])
     const [hidden, setHidden] = useState(true)
+    const navigate = useNavigate()
 
   
 
@@ -28,8 +28,7 @@ function IndexPage() {
             }   
         } 
         )
-        .catch(err => console.log(err)
-        )
+        .catch(err => navigate("/*"))
     },[user.userId, userSchedule &&userSchedule.length])
 
     if(!userAccess){
@@ -72,8 +71,6 @@ function IndexPage() {
            buttonToggle={setHidden}
            />
            }
-           
-
 
            {
             userSchedule.length > 0 &&

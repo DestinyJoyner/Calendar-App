@@ -4,6 +4,7 @@ import axios from "axios";
 import Nav from "./Nav";
 import UserInfo from "./UserInfo";
 import DeleteModal from "./DeleteModal";
+import RandomFact from "./RandomFact";
 
 export const ContextData = createContext()
 export function useContextProvider() {
@@ -35,7 +36,6 @@ function Provider({children}) {
     // state to store id value of event to be deleted
     const [deleteModalId, setDeleteModalId] = useState("")
    
-    
     // useEffect to check current session of user still active i.e token = true
     useEffect(() => {
         // axios call to get info for today's date
@@ -72,6 +72,7 @@ function Provider({children}) {
 
        }}>
         <Nav />
+        <RandomFact />
         {userAccess && <UserInfo />}
         {deleteModal && <DeleteModal />}
         

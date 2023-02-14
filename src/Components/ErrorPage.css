@@ -1,0 +1,36 @@
+.error {
+    border: 1px solid aqua;
+    width: 75%;
+    height: 70%;
+    margin-top: 5%;
+    padding-bottom: 5%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    box-shadow: 1px 1px 80px aqua;
+    background-color: rgba(0, 0, 0, 0.825);
+    color: #F9FBFF;
+    letter-spacing: 1px;
+}
+
+.error h1, .error h2 {
+    height: fit-content;
+    box-shadow: 1px 1px 10px aqua;
+    background-color: rgb(135, 134, 134);
+    
+    font-size: 36px;
+}
+
+.error img {
+    height: 250px;
+}
+
+.error .error-button {
+    width: 40%;
+    height: 70%;
+    font-size: 28px;
+    
+    background-color: rgb(135, 134, 134);
+    border: 1px solid black;
+    box-shadow: 1px 1px 15px aqua;
+}

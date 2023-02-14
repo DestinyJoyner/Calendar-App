@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useContextProvider } from "../Components/Provider";
 import { handleTextChange, handleCheckbox, convertDateStamp } from "../Functions/helperFunctions";
 import "./Form.css"
 
-function Form({stateVar, setFunction, buttonToggle}) {
+function Form({stateVar, setFunction, buttonToggle, formPage}) {
     const { API, axios, user} = useContextProvider()
     const {id} = useParams()
+    const navigate = useNavigate()
     const [checked, setChecked] = useState(false)
     const [form, setForm] = useState({
         day_start: "",
@@ -24,31 +25,34 @@ function Form({stateVar, setFunction, buttonToggle}) {
                 setFunction(data)
                 buttonToggle(true)
             })
-            .catch(err => console.log(err))
+            .catch(err => navigate("/*"))
         }
         else{
             axios.post(`${API}/schedule?userId=${user.userId}`, form)
             .then(({data}) => {
-                if(!stateVar){
-                    setFunction([data])
+                if(formPage){
+                    navigate("/index")
                 }
                 else{
-                    setFunction([...stateVar, data])
+                    if(!stateVar){
+                        setFunction([data])
+                    }
+                    else{
+                        setFunction([...stateVar, data])
+                    }
+                    
+                    setChecked(false)
+                    buttonToggle(true)
+                    setForm({
+                        day_start: "",
+                        title: "",
+                        description: "",
+                        important: "",
+                        user_id: user.userId
+                    })
                 }
-                
-                setChecked(false)
-                buttonToggle(true)
-                setForm({
-                    day_start: "",
-                    title: "",
-                    description: "",
-                    important: "",
-                    user_id: user.userId
-                })
             })
-            .catch(err => 
-                console.log(err)
-            )
+            .catch(err => navigate("/*"))
         }
     }
 

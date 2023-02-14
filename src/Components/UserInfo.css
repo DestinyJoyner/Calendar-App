@@ -5,7 +5,7 @@
     width: 200px;
     margin-left: 2%;
     position: relative;
-    top: 2%;
+    /* top: 2%; */
     display: grid;
     grid-template-columns: .4fr .6fr;
     grid-template-rows: 1fr 1fr;

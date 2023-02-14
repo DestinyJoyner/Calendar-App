@@ -1,5 +1,5 @@
 .index {
-    margin-top: 10%;
+    margin-top: 12%;
     width: 95%;
     padding-bottom: 1%;
     display: grid;
@@ -30,6 +30,7 @@
     grid-column: 2;
     grid-row: 2;
     width: 100%;
+    height: 90%;
     box-shadow: -3px -3px 10px aqua;
 }
 .index-list {
@@ -83,7 +84,8 @@
     grid-column: 2;
     grid-row: 3;
     left: 10%;
-    top: 25%;
+    /* top: 25%; */
+    bottom: 100%;
 }
 .index .hover-text .toggle-button svg path {
     fill: #00D1D1;
@@ -102,7 +104,8 @@
 
 .index form {
     grid-column: 2;
-    grid-row: 4;
+    grid-row: 3/5;
 }
+
 
 
