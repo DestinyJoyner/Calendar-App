@@ -1,0 +1,17 @@
+.animated-background {
+    height: 100%;
+    width: 100%;
+    background-image: url("/public/days-of-week-calendar.png");
+    background-position: center;
+    background-size: contain;
+    animation: animatedBackground 25s linear infinite ;
+}
+
+@keyframes animatedBackground {
+    from {
+      background-position: 100% 100%;
+    }
+    to {
+      background-position: -100% -100%;
+    }
+  }

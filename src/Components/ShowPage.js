@@ -12,6 +12,7 @@ import ToggleButton from "../ReusableComponents/ToggleButton";
 import Calendar from "../ReusableComponents/Calendar";
 import Form from "../ReusableComponents/Form";
 import AccessModal from "./AccessModal";
+import AnimatedBackground from "../ReusableComponents/AnimatedBackground";
 import "./ShowPage.css"
 
 function ShowPage() {
@@ -45,7 +46,7 @@ function ShowPage() {
 
     return ( 
         <div className="show center">
-            <h1>{cal_day_name} {cal_month_name} {cal_day} {cal_year}</h1>
+            <h1 className="show-header">{cal_day_name} {cal_month_name} {cal_day} {cal_year}</h1>
             
             <div className="show-details" >
                 {
@@ -101,6 +102,8 @@ function ShowPage() {
                 }
 
             </div>
+
+            <AnimatedBackground />
 
         </div>
     );
