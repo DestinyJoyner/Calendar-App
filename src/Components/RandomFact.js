@@ -13,16 +13,16 @@ function RandomFact() {
         - create a new instance of axios and remove the default header from it
         - api -> http://numbersapi.com/#42
     */
-    useEffect(() => {
-        const newAxios = axios.create()
-        delete newAxios.defaults.headers.common['Authorization']
-        if(cal_month && cal_day){
-            newAxios.get(`http://numbersapi.com/${cal_month}/${cal_day}/date`)
-            .then(({data})=> setRandomFact(data))
-            .catch(err => console.log(err))
-        }
+    // useEffect(() => {
+    //     const newAxios = axios.create()
+    //     delete newAxios.defaults.headers.common['Authorization']
+    //     if(cal_month && cal_day){
+    //         newAxios.get(`http://numbersapi.com/${cal_month}/${cal_day}/date`)
+    //         .then(({data})=> setRandomFact(data))
+    //         .catch(err => console.log(err))
+    //     }
         
-    },[cal_day])
+    // },[cal_day])
 
     return (
         <div className="random">
