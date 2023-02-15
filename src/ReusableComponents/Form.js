@@ -114,6 +114,7 @@ function Form({stateVar, setFunction, buttonToggle, formPage}) {
             </label>
 
             <input 
+            className="button-style"
             type="submit"/>
 
         </form>

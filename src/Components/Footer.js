@@ -8,19 +8,19 @@ function Footer() {
     return (
         <section className="squares">
         <div>
-          <span className="square1">
+          <span className="square1 button-style">
             <span><BsFillCalendar2WeekFill size={"30px"} color={"aqua"} /></span>
           </span>
         </div>
         <div>
-          <span className="square2">
+          <span className="square2 button-style">
             <span>Destiny Joyner</span>
             <span>destinyjoyner@pursuit.org</span>
             <span>New York City, New York</span>
           </span>
         </div>
         <div>
-          <span className="square3">
+          <span className="square3 button-style">
             <span>
                 <a href= "https://github.com/DestinyJoyner" target="blank">
                     <VscGithub color={"aqua"} size={"40px"}/>

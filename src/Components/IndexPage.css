@@ -85,12 +85,16 @@
     grid-column: 2;
     grid-row: 3;
     left: 10%;
-    /* top: 25%; */
     bottom: 100%;
 }
 .index .hover-text .toggle-button svg path {
     fill: #00D1D1;
     stroke: black;
+}
+
+.dark .index .hover-text .toggle-button svg path {
+    stroke: aqua;
+    fill: rgb(3, 3, 23) ;
 }
 
 .upcoming {

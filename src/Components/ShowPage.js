@@ -39,7 +39,9 @@ function ShowPage() {
     useEffect(() => {
         axios.get(`${API}/schedule/${id}?userId=${user_id}`)
         .then(({data}) => setThisEvent(data))
-        .catch(err => navigate("/*"))
+        .catch(err => {
+            if(userAccess)navigate("/*")
+        })
     },[id, thisEvent.day_start])
 
     if(!userAccess){
@@ -48,7 +50,7 @@ function ShowPage() {
 
     return ( 
         <div className="show center">
-            <h1 className="show-header">{cal_day_name} {cal_month_name} {cal_day} {cal_year}</h1>
+            <h1 className="show-header text-shadow">{cal_day_name} {cal_month_name} {cal_day} {cal_year}</h1>
             
             <div className="show-details" >
                 {

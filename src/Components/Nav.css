@@ -51,16 +51,6 @@
     justify-self: center;
     font-size: 24px;
     margin-top: 10%;
-    color:  #FDFEFF;
-    text-shadow:
-        0 0 7px #fff,
-        0 0 10px #fff,
-        0 0 21px #fff,
-        0 0 42px #fff,
-        0 0 82px #fff,
-        0 0 92px #fff,
-        0 0 102px #fff,
-        0 0 151px #fff; 
 }
 
 .dark .nav-hr {
@@ -135,3 +125,8 @@
   .slider.round:before {
     border-radius: 50%;
   }
+
+
+
+  /* sliding nav test */
+

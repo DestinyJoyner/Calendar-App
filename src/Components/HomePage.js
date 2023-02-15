@@ -22,7 +22,7 @@ function HomePage() {
           height = {"70%"}
           width = {"80%"} /> :
           <Link to = "/index">
-          <button className="home-button"
+          <button className="home-button button-style"
           >View My Schedule</button>
           </Link>
         } 
