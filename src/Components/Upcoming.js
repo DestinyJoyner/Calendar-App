@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useContextProvider } from "./Provider";
 import { HiOutlineClipboardList } from "react-icons/hi"
 import UpcomingDates from "./UpcomingDates";
@@ -29,7 +30,10 @@ function Upcoming({userSchedule}) {
                 <h5>Today's Events</h5>
                 {
                     happeningToday ?
-                    happeningToday.map(({title, id}) => <li key ={id}><HiOutlineClipboardList color={"aqua"} size={"15px"} />{"  "}{title}</li>) :
+                    happeningToday.map(({title, id}) => 
+                    <li key ={id}>
+                        <HiOutlineClipboardList color={"aqua"} size={"15px"} />
+                        {"  "}<Link to={`/index/${id}`}>{title}</Link></li>) :
                     <li>No scheduled events for today</li>
                 }
                 <br/>

@@ -55,7 +55,7 @@
     letter-spacing: 1px;
 }
 
-.dark .text-shadow, .dark .nav nav a, .dark .calendar h1, .dark .home .home-title h2, .dark .index h2, .new .form label {
+.dark .text-shadow, .dark .nav nav a, .dark .calendar h1, .dark .home .home-title h2, .dark .index h2, .new .form label, .dark .happening-today a {
     color:  #FDFEFF;
     text-shadow: 0px 0px 15px aqua ;
 }

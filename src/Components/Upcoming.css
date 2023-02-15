@@ -26,3 +26,13 @@
 .happening-today li {
     margin-bottom: 5%;
 }
+
+.happening-today a {
+    color: black;
+}
+
+.happening-today a:hover {
+    color: aqua;
+    font-size: 22px;
+}
+
