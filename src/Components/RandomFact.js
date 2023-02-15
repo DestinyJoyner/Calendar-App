@@ -22,7 +22,7 @@ function RandomFact() {
             .then(({data})=> setRandomFact(data.text))
             .catch(err => console.log(err))
 
-    },[])
+    },[cal_date])
 
     return (
         <div className="random">
