@@ -1,3 +1,4 @@
+import { MdLiveHelp } from "react-icons/md"
 
 function UserForm({stateVar1, stateVar2, setFunction1, setFunction2, submitFunction, setButton}) {
 
@@ -26,17 +27,20 @@ function UserForm({stateVar1, stateVar2, setFunction1, setFunction2, submitFunct
       </label>
       <div>
         <button 
+        className="button-style"
         type="submit"
         onClick = {() => setButton("login")}>
             Login
         </button>
 
         <button 
+        className="button-style"
         type="submit"
         onClick = {() => setButton("register")}>
             Register
         </button>
       </div>
+      
     </form>
     );
 }

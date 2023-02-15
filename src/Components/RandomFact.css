@@ -7,6 +7,7 @@
     font-size: 22px;
     text-align: center;
     line-height: 26px;
+    z-index: 1;
 }
 
 .random p {

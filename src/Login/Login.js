@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useContextProvider } from "../Components/Provider";
 import UserForm from "../ReusableComponents/UserForm";
 import LoginModal from "../Components/LoginModal";
+import HelpModal from "../Components/HelpModal";
+import { MdLiveHelp } from "react-icons/md"
 import "./Login.css"
 
 function Login({width, height}) {
@@ -15,6 +17,8 @@ function Login({width, height}) {
   const [loginModal, setLoginModal] = useState(false)
   // state for error message from catch
   const [errorMessage, setErrorMessage] = useState("")
+  // state for help modal 
+  const [help, setHelp] = useState(false)
   const navigate = useNavigate();
 
   function successLogin(value) {
@@ -89,6 +93,17 @@ function Login({width, height}) {
         submitFunction={signIn}
         setButton={setButton}
       />
+
+      <button 
+      className="help-button"
+      onClick={() => setHelp(true)}>
+        <MdLiveHelp color={"aqua"} size={"25px"} />
+      </button>
+
+      {
+        help && <HelpModal setFunction={setHelp} />
+      }
+
       {
         loginModal && 
         <LoginModal

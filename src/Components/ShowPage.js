@@ -25,7 +25,6 @@ function ShowPage() {
     const { day_start, title, description, important, user_id, cal_month, cal_day, cal_year, cal_day_name, cal_month_name } = thisEvent
    
    const dayIcon = cal_day_name ? dayIconPicker(thisEvent.cal_day_name) : false
-   console.log("icon",dayIcon)
 
    function deletePrompt() {
     setDeleteModalId(id)

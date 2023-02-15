@@ -19,8 +19,8 @@ function HomePage() {
         {
           !userAccess ?
           <Login 
-          height = {"70%"}
-          width = {"80%"} /> :
+          height = {"80%"}
+          width = {"85%"} /> :
           <Link to = "/index">
           <button className="home-button button-style"
           >View My Schedule</button>

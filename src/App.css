@@ -31,13 +31,14 @@
     z-index: 1000;
   }
 
-  .deleteModal, .loginModal {
+
+  .deleteModal, .loginModal, .helpModal {
     position: relative;
     width: 60%;
     height: 60%;
     top: 15%;
     left: 20%;
-    z-index: 1000;
+    z-index: 100;
     text-align: center;
     display: grid;
     background-color: rgba(169, 169, 169, 0.872);
