@@ -5,6 +5,7 @@ import Show from "../Pages/Show";
 import New from "../Pages/New"
 import About from "../Pages/About"
 import Error from "../Pages/Error";
+import Bonus from "../Bonus/Bonus";
 
 
 function RouteComponent() {
@@ -18,6 +19,7 @@ function RouteComponent() {
                     <Route path = "new" element={<New />} />
                     <Route path = ":id" element = {<Show />} />
                 </Route>
+                <Route path ="bonus" element = {<Bonus />} />
             </Route>
             <Route path="*" element={<Error />} />
         </Routes>

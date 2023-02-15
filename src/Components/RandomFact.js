@@ -31,7 +31,7 @@ function RandomFact() {
                 randomFact.id &&
                 <p className="button-style">
                 <span><FaLaughSquint color={"aqua"} size={"50px"} /></span>
-                <span>"{randomFact.setup}"</span>
+                <span>{randomFact.setup}</span>
                 <span>{randomFact.punchline}</span>
                 </p>
             }
