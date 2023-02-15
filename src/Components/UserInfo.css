@@ -11,6 +11,8 @@
     grid-template-rows: 1fr 1fr;
     align-items: center;
     justify-items: center;
+    z-index: 600;
+    background-color: rgba(169, 169, 169, 0.675);;
 }
 
 .userInfo svg {

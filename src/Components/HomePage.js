@@ -6,11 +6,10 @@ import Footer from "./Footer";
 import "./HomePage.css";
 
 function HomePage() {
-  const { userAccess } = useContextProvider()
+  const { userAccess} = useContextProvider()
 
   return (
     <div className="home">
-
       <article className="home-title">
         <h2>
           <span>Destiny's </span>
@@ -19,8 +18,8 @@ function HomePage() {
         {
           !userAccess ?
           <Login 
-          height = {"70%"}
-          width = {"80%"} /> :
+          height = {"80%"}
+          width = {"85%"} /> :
           <Link to = "/index">
           <button className="home-button button-style"
           >View My Schedule</button>

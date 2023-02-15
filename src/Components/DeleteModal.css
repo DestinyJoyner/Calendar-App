@@ -3,9 +3,14 @@
     color: black;
     grid-template-rows: 1fr 3fr;
     align-items: center;
+    
   }
 
   .deleteModal span {
     display: flex;
     justify-content: space-evenly;
+  }
+
+  .deleteModal span .hover-text button {
+    padding: 10px;
   }

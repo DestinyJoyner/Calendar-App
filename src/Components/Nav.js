@@ -13,8 +13,8 @@ function Nav() {
                 <hr className="nav-hr" />
             </button> 
             {
-                navbar && 
-            <nav className="button-style ">
+               navbar &&
+            <nav className="button-style">
                 <Link to ="/">HOME </Link>
                 <Link to ="/index">INDEX </Link>
                 <Link to ="/index/new">ADD EVENT</Link>
