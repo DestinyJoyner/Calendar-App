@@ -6,11 +6,10 @@ import Footer from "./Footer";
 import "./HomePage.css";
 
 function HomePage() {
-  const { userAccess } = useContextProvider()
+  const { userAccess} = useContextProvider()
 
   return (
     <div className="home">
-
       <article className="home-title">
         <h2>
           <span>Destiny's </span>
