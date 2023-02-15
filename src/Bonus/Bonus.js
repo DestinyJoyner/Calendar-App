@@ -25,29 +25,32 @@ function Bonus(props) {
                letterIndex.push(index)
             }
         })
-        console.log(letterIndex)
-
-
-
-        // console.log(refElement.current.getElementsByClassName("toggle"))
+        console.log(refElement.current.children[letterIndex[0]])
+        if(letterIndex.length){
+            letterIndex.forEach(el => {
+                refElement.current.children[el].classList.remove('hidden')
+                
+            })
+        }
 
     }
 
     useEffect(() => {
         const convertWord = randomWord({exactly:1})[0].toLowerCase().split('')
+        console.log(convertWord)
         setWord(convertWord)
     }, [])
 
     return (
         <div className="bonus center">
-            <section className="bonus-word">
+            <section
+            ref={refElement} 
+            className="bonus-word">
                 {
                     word.map(letter => <p
                     key={uuid()} 
-                    className="letter">
-                        <span 
-                        ref={refElement}
-                        className="toggle">{letter}</span>
+                    className="hidden">
+                       {letter}
                         </p>)
                 }
             </section>

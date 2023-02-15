@@ -11,17 +11,15 @@
 .bonus-word {
     display: flex;
     justify-content: space-evenly;
+    align-content: center;
     width: 80%;
     font-size: 50px;
 }
 
-.bonus-word p {
-    
-}
-
-.bonus-word p span {
+.bonus-word p  {
    border-bottom: 2px solid black;
-    padding-bottom: 10px;
+   padding-bottom: 5%;
+   height: fit-content;
 }
 
 .alphabet {
@@ -41,5 +39,5 @@
 }
 
 .hidden {
-    display: none;
+    visibility: hidden;
 }
