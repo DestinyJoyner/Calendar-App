@@ -36,9 +36,9 @@ function UpcomingDates({userSchedule}) {
             <section className="dateEvents button-style">
                 { !hidden &&
                     thisDateEvent.map(({title, id}) => 
-                    <Link 
-                    key= {id}
-                    to={`/index/${id}`}>{title}</Link>)
+                    <li key= {id}>
+                        <Link to={`/index/${id}`}>{title}</Link>
+                    </li>)
                 }
             </section>
         </div>

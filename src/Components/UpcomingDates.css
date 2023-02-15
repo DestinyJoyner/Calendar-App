@@ -13,19 +13,29 @@
 .userDates .dateEvents {
     margin-top: 5%;
     display: grid;
-    grid-auto-rows: 80px;
+    grid-auto-rows: 35px;
     border: 1px solid black;
     width: 80%;
     height: 20vh;
     max-height: 25vh;
     overflow: auto;
     margin-left: 2%;
+    list-style:square;
+    padding: 10px 0;
+}
+
+.userDates .dateEvents li {
+    margin-left: 5%;
+}
+
+.userDates .dateEvents li a {
+    position: relative;
+    left: -10px;
 }
 
 .userDates .dateEvents a {
     margin-top: 10%;
-    margin-left: 10%;
-    font-size: 22px;
+    font-size: 20px;
     color: lightgray;
 }
 
