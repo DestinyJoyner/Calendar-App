@@ -12,7 +12,17 @@
 
 .random p {
     display: grid;
-    grid-template-columns: .1fr 1fr;
+    grid-template-columns: .1fr .9fr;
     align-items: center;
-    padding: 3px;
+    row-gap: 10%;
+    padding: 5px;
+}
+
+.random p span:first-of-type {
+    grid-row: 1/3;
+}
+
+.random p span:last-of-type {
+    grid-column: 2;
+    grid-row: 2;
 }
