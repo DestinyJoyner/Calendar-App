@@ -1,12 +1,12 @@
+import UseSound from "../ReusableComponents/UseSound"
 import { BsGithub } from "react-icons/bs"
 import{ AiOutlineLinkedin } from "react-icons/ai"
-
 import { TfiEmail } from "react-icons/tfi"
 import "./AboutPage.css"
 
 function AboutPage() {
     return (
-        <div className="about">
+        <div className="about ">
             <section className="about-info">
                 <h3>About This App</h3>
                 <p>I built a React application that allows the user to create an account, login and have the option to add, update, view, and or delete an event to their unique calendar. The user authentication is coded in the backend (Express, and Postgres database) using JSON Web Tokens (JWT), and Bcrypt. </p>
@@ -31,6 +31,7 @@ function AboutPage() {
                     size={"40px"} />
                 </a>
             </section>
+            <UseSound />
         </div>
     );
 }

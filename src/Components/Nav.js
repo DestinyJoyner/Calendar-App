@@ -14,7 +14,7 @@ function Nav() {
             </button> 
             {
                 navbar && 
-            <nav>
+            <nav className="button-style ">
                 <Link to ="/">HOME </Link>
                 <Link to ="/index">INDEX </Link>
                 <Link to ="/index/new">ADD EVENT</Link>
@@ -33,6 +33,7 @@ function Nav() {
              </label>
             </nav>
             }
+            
         </div>
     );
 }

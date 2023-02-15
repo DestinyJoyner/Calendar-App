@@ -1,0 +1,14 @@
+.use-sound {
+    all:unset;
+    position:fixed;
+    top: 85%;
+    left: 55%;
+}
+
+.use-sound img {
+    height: 100px;
+}
+
+.use-sound:hover {
+    border: unset;
+}

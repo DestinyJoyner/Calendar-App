@@ -27,7 +27,7 @@ function RandomFact() {
     return (
         <div className="random">
             
-            <p>
+            <p className="button-style">
                 <span><RiQuestionnaireFill color={"aqua"} size={"50px"} /></span>
                 <span>"{randomFact}"</span>
             </p>

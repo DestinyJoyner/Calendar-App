@@ -28,7 +28,6 @@ function Login({width, height}) {
             userName : value.userName,
             userId: value.userId
           }))
-          // navigate("/index")
   }
 
   //function for adding/ registering user

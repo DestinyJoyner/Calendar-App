@@ -21,9 +21,11 @@ function ShowPage() {
     const navigate = useNavigate()
     const [thisEvent, setThisEvent] = useState({})
     const [hidden, setHidden] = useState(true)
+ 
     const { day_start, title, description, important, user_id, cal_month, cal_day, cal_year, cal_day_name, cal_month_name } = thisEvent
    
-   const dayIcon = cal_day_name ? dayIconPicker(cal_day_name) : false
+   const dayIcon = cal_day_name ? dayIconPicker(thisEvent.cal_day_name) : false
+   console.log("icon",dayIcon)
 
    function deletePrompt() {
     setDeleteModalId(id)
@@ -37,7 +39,9 @@ function ShowPage() {
     useEffect(() => {
         axios.get(`${API}/schedule/${id}?userId=${user_id}`)
         .then(({data}) => setThisEvent(data))
-        .catch(err => navigate("/*"))
+        .catch(err => {
+            if(userAccess)navigate("/*")
+        })
     },[id, thisEvent.day_start])
 
     if(!userAccess){
@@ -46,12 +50,13 @@ function ShowPage() {
 
     return ( 
         <div className="show center">
-            <h1 className="show-header">{cal_day_name} {cal_month_name} {cal_day} {cal_year}</h1>
+            <h1 className="show-header text-shadow">{cal_day_name} {cal_month_name} {cal_day} {cal_year}</h1>
             
             <div className="show-details" >
                 {
                     dayIcon ? 
-                    <img src={dayIconPicker(cal_day_name)} alt={cal_day_name} className="day-icon" /> : <CiImageOff size={"100px"} color={"aqua"} />
+                    <img src={dayIconPicker(cal_day_name)} alt={cal_day_name} className="day-icon" /> 
+                    : <CiImageOff size={"100px"} color={"aqua"} />
                 }
                 { day_start && <Calendar 
                 date={day_start.slice(0,10)}
@@ -98,7 +103,8 @@ function ShowPage() {
                     <Form 
                     stateVar={thisEvent}
                     setFunction={setThisEvent}
-                    buttonToggle={setHidden}/>
+                    buttonToggle={setHidden}
+                    />
                 }
 
             </div>

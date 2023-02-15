@@ -3,7 +3,9 @@ function UserForm({stateVar1, stateVar2, setFunction1, setFunction2, submitFunct
 
 
     return (
-    <form onSubmit={(event) => submitFunction(event)}>
+    <form 
+    className="button-style"
+    onSubmit={(event) => submitFunction(event)}>
       <label>
         <p>Username:</p>
         <input 

@@ -35,3 +35,14 @@
     height: 60%;
     font-size: 18px;
 }
+
+.dark .userInfo {
+    color: aqua;
+    text-shadow: 0px 0px 10px #FDFEFF ;
+    border:#F9FBFF 2px solid;
+
+}
+
+.dark .userInfo span {
+    background-color: rgb(3, 3, 23) ;
+}

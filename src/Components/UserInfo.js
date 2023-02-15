@@ -19,6 +19,7 @@ function UserInfo() {
             <FaUserCircle color ={"aqua"} size={"65px"} />
             <span>{user.userName}</span>
             <button
+            className="button-style"
             onClick={() => logOut()}>Logout</button>
         </div>
     );

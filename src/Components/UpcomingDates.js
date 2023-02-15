@@ -33,7 +33,7 @@ function UpcomingDates({userSchedule}) {
                  key={i}
                  style={"date-button-unclicked"} />)
             }
-            <section className="dateEvents">
+            <section className="dateEvents button-style">
                 { !hidden &&
                     thisDateEvent.map(({title, id}) => 
                     <Link 

@@ -3,7 +3,7 @@ function ClickButton({icon, onClick, style, value}) {
     return (
         <div className='hover-text'>
             <button 
-            className= {style}
+            className= {`button-style ${style}`}
             onClick={(event) => onClick(event)}>
             {icon}
             </button>
