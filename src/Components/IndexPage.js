@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContextProvider } from "./Provider";
+import { convertDateStamp } from "../Functions/helperFunctions";
 import IndexMap from "./IndexMap";
 import Upcoming from "./Upcoming";
 import Form from "../ReusableComponents/Form";
@@ -14,15 +15,22 @@ function IndexPage() {
     const { cal_day, cal_day_name, cal_month, cal_month_name, cal_year } = todaysDate
     const [userSchedule, setUserSchedule] = useState([])
     const [hidden, setHidden] = useState(true)
+    const [dateSort, setDateSort] = useState(false)
     const navigate = useNavigate()
     
     // test token
     const tokenValue = window.localStorage.getItem('token')
     
+    // last minutes additions, will refactor and add to helper function file
     function alertSort() {
         const copyArr = [...userSchedule]
         const alerts = userSchedule.filter(({important}) => important)
         setUserSchedule(alerts)
+    }
+
+    function dateSorting() {
+      setUserSchedule([...userSchedule].reverse())
+     
     }
 
     function showAll() {
@@ -54,7 +62,7 @@ function IndexPage() {
         // } 
         // )
         // .catch(err => console.log(err))
-    },[user.userId,  tokenValue])
+    },[user.userId, tokenValue])
 
     if(!userAccess){
         return <AccessModal />
@@ -67,7 +75,7 @@ function IndexPage() {
 
             <div className="index-list-container">
             <div className="index-list">
-            <h3>Date</h3>
+            <h3><button onClick={() => dateSorting()}>Date</button></h3>
             <h3><button onClick={() => showAll()}>Event</button></h3>
             {/* make button on click show alert events */}
             <h3><button onClick={() => alertSort()}>Alert</button></h3>

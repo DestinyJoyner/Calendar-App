@@ -28,7 +28,7 @@ function IndexMap({obj, todaysDate, userSchedule, setUserSchedule}) {
             style={pastDate || +yearValue <2023 ? {textDecoration:"line-through", textDecorationColor: "black"} : {}}>{title}</span>
         </Link>
         <span>{important ? <HiBellAlert size={"20px"}/> : "" } </span>
-        <button onClick={() => handleDelete(id) }><IoIosRemoveCircle size={"20px"} /></button>
+        <button className="index-list-delete" onClick={() => handleDelete(id) }><IoIosRemoveCircle size={"20px"} /></button>
         </>
     );
 }
