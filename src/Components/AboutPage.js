@@ -1,10 +1,20 @@
+import { useNavigate } from "react-router-dom"
+import { useContextProvider } from "./Provider"
 import UseSound from "../ReusableComponents/UseSound"
 import { BsGithub } from "react-icons/bs"
 import{ AiOutlineLinkedin } from "react-icons/ai"
 import { TfiEmail } from "react-icons/tfi"
+import notepad from "../assets/notepad.png"
 import "./AboutPage.css"
 
 function AboutPage() {
+    const { setBonus } = useContextProvider()
+    const navigate = useNavigate()
+    function unlockBonus(){
+        setBonus(true)
+        navigate("/bonus")
+    }
+
     return (
         <div className="about ">
             <section className="about-info">
@@ -32,6 +42,11 @@ function AboutPage() {
                 </a>
             </section>
             <UseSound />
+            <button 
+            className="unlock-bonus"
+            onClick={() => unlockBonus()}>
+                <img src={notepad} alt="notepad" />
+            </button>
         </div>
     );
 }
