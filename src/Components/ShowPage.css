@@ -130,6 +130,11 @@
     border: unset;
 }
 
+.show-info .show-description {
+    overflow-y: auto;
+    max-height: 11vh;
+}
+
 /* edit form on show page */
 
 .show .form {

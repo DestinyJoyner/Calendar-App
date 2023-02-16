@@ -89,7 +89,7 @@ function ShowPage() {
                     </h2>
                     <h2>
                         <span> Details: </span>
-                        <span>{description}</span>
+                        <span className="show-description">{description}</span>
                     </h2>
                     <h2>
                         <span>Important?</span>
