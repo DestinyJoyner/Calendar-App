@@ -18,13 +18,12 @@ function AboutPage() {
         setBonus(true)
         navigate("/bonus")
     }
-    // The user authentication is coded in the backend (Express, and Postgres database) using JSON Web Tokens (JWT), Bcrypt and Express-Validator.
 
     return (
         <div className="about ">
             <section className="about-info">
                 <h3>About This App</h3>
-                <p>I built a React application that allows the user to create an account, login and have the option to add, update, view, and or delete an event to their unique calendar.</p>
+                <p>I built a React application that allows the user to create an account, login and have the option to add, update, view, and or delete an event to their unique calendar. </p>
                 <h3>About the Developer</h3>
                 <p>Born and raised in Harlem, USA, I've always had a flare for solving math and logic puzzles. <br/>
                  I enjoy pushing the limits of what an application can do. I enjoy testing out different functionalities and coding multiple features to provide users with a full (slightly) comical experience each time they visit one of my applications.</p>
