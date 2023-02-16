@@ -67,12 +67,18 @@
     top: 64%;
 }
 
-.about .unlock-bonus:hover {
+.about .unlock-bonus:hover, .about-links a:hover, .project-links a:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
 .about .unlock-bonus img {
     height: 60px;
+}
+
+.about .project-links{
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
 }
 
 .dark .about-info {

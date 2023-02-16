@@ -1,12 +1,12 @@
 .use-sound {
     all:unset;
     position:fixed;
-    top: 85%;
+    top: 88%;
     left: 55%;
 }
 
 .use-sound img {
-    height: 100px;
+    height: 85px;
 }
 
 .use-sound:hover {
