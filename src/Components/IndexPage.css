@@ -89,6 +89,10 @@
     all: unset;
 }
 
+.index-list button.index-list-delete:hover {
+    cursor: pointer;
+}
+
 .index-list .no-schedule {
     grid-column: span 3;
     grid-row: 2;

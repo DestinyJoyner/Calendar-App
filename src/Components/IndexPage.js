@@ -30,7 +30,6 @@ function IndexPage() {
 
     function dateSorting() {
       setUserSchedule([...userSchedule].reverse())
-     
     }
 
     function showAll() {
