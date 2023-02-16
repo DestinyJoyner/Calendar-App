@@ -13,11 +13,11 @@ This is a React application that allows the user to create an account, login and
 (when registering, be sure to type your password carefully, as it will be stored as is the first time you register for an account)
 
 <h2>Instructions for Cloning</h2>
--You will need to also clone down the backend repo (LINK ABOVE) to run the application locally
+- You will need to also clone down the backend repo (LINK ABOVE) to run the application locally
 
--Once cloned, run the `npm i` command and then `npm start`
+- Once cloned, run the `npm i` command and then `npm start`
 
--You will need to create an .env file and set the `REACT_APP_API_URL` key to the local host port you will be running on your backend (SEE BACKEND REPO README ABOVE) 
+- You will need to create an .env file and set the `REACT_APP_API_URL` key to the local host port you will be running on your backend (SEE BACKEND REPO README ABOVE) 
 
 
 <h2>User Stories</h2>
