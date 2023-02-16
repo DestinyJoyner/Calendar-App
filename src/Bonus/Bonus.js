@@ -1,13 +1,18 @@
 import { useState, useEffect, useRef } from "react"
 import uuid from "react-uuid"
+import axios from "axios"
 import "./Bonus.css"
 
-function Bonus(props) {
+function Bonus() {
     const refElement = useRef()
-    
-    const [word, setWord] = useState([])
     const randomWord = require('random-words')
-    // use ref
+
+    const [word, setWord] = useState([])
+    const [hint, setHint] = useState({
+        length: "",
+        definition: ""
+    })
+    
     
     
     const alphabet = []
@@ -28,21 +33,32 @@ function Bonus(props) {
         console.log(refElement.current.children[letterIndex[0]])
         if(letterIndex.length){
             letterIndex.forEach(el => {
-                refElement.current.children[el].classList.remove('hidden')
-                
+                refElement.current.children[el].classList.remove('hidden')    
             })
         }
-
     }
 
+    // dictionary https://dictionaryapi.dev/
+
     useEffect(() => {
-        const convertWord = randomWord({exactly:1})[0].toLowerCase().split('')
+        const convertWord = randomWord({exactly:1})[0].toLowerCase()
         console.log(convertWord)
-        setWord(convertWord)
+        setWord(convertWord.split(''))
+        const newAxios = axios.create()
+        delete newAxios.defaults.headers.common['Authorization']
+        newAxios.get(`https://dictionaryapi.dev/api/v2/entries/en/${convertWord}`)
+        .then(({data}) => setHint({
+            length: convertWord.length,
+            definition: data.meanings[0].definitions.definition
+        }))
     }, [])
 
     return (
         <div className="bonus center">
+            <section className="bonus-hint">
+                <span>Letters: {hint.length}</span>
+                <span>Meaning: {hint.definition}</span>
+            </section>
             <section
             ref={refElement} 
             className="bonus-word">
