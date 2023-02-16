@@ -1,4 +1,4 @@
-#Destiny Front End Pern-Portfolio Project
+<h1>Destiny Front End Pern-Portfolio Project</h1>
 
 [Explore the Calendar Application Here!](https://destiny-calendar-project.netlify.app/)
 
@@ -10,7 +10,7 @@ This is a React application that allows the user to create an account, login and
 
 (when registering, be sure to type your password carefully, as it will be stored as is the first time you register for an account)
 
-##Instructions for Cloning 
+<h2>Instructions for Cloning</h2>
 -You will need to also clone down the  [Backend Repo](https://github.com/DestinyJoyner/Pern-Portfolio-Backend) to run the application locally
 -Once cloned, run the `npm i` command and then `npm start`
 -You will need to create an .env file and set the `REACT_APP_API_URL` key to the local host port you will be running on your backend (SEE BACKEND REPO README ABOVE) 
