@@ -4,6 +4,8 @@
 
 [Deployed Backend](https://pern-portfolio-calendar-app.onrender.com/)&emsp; &emsp;
 
+[Backend Repo](https://github.com/DestinyJoyner/Pern-Portfolio-Backend) 
+
 This is a React application that allows the user to create an account, login and have the option to add, update, view, and or delete an event to their unique calendar. The frontend uses various React libraries (axios, react-router-dom, react-icons, react-words, react-token-auth, react-uuid, use-sound). No additional CSS libraries are needed to run this application.  The user authentication is coded in the backend (Express, and Postgres database) using JSON Web Tokens (JWT), and Bcrypt.
 
 <img src="/public/readme-screenshot.png" alt="screenshot"  width="500"/>
@@ -11,7 +13,7 @@ This is a React application that allows the user to create an account, login and
 (when registering, be sure to type your password carefully, as it will be stored as is the first time you register for an account)
 
 <h2>Instructions for Cloning</h2>
--You will need to also clone down the  [Backend Repo](https://github.com/DestinyJoyner/Pern-Portfolio-Backend) to run the application locally
+-You will need to also clone down the backend repo (LINK ABOVE) to run the application locally
 
 -Once cloned, run the `npm i` command and then `npm start`
 
