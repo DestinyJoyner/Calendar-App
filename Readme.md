@@ -21,6 +21,7 @@ This is a React application that allows the user to create an account, login and
 
 
 <h2>User Stories</h2>
+
 - As a user, I can register for an account on the App
 
 - As a user, I can successfully login to the application using the username and password I registered with
