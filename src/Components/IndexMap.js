@@ -8,7 +8,8 @@ function IndexMap({obj, todaysDate, userSchedule, setUserSchedule}) {
     const { API, axios } = useContextProvider()
     const {day_start, title, important, id, user_id} = obj
     const pastDate = day_start && todaysDate.cal_date ? compareDate(todaysDate.cal_date, day_start) : false
-
+    const yearValue = day_start.slice(0,4)
+    
     function handleDelete(idValue) {
         axios.delete(`${API}/schedule/${idValue}?userId=${user_id}`)
         .then(({data}) => {
@@ -24,7 +25,7 @@ function IndexMap({obj, todaysDate, userSchedule, setUserSchedule}) {
         <Link 
         to={`/index/${id}`}>
             <span
-            style={pastDate ? {textDecoration:"line-through", textDecorationColor: "black"} : {}}>{title}</span>
+            style={pastDate || +yearValue <2023 ? {textDecoration:"line-through", textDecorationColor: "black"} : {}}>{title}</span>
         </Link>
         <span>{important ? <HiBellAlert size={"20px"}/> : "" } </span>
         <button onClick={() => handleDelete(id) }><IoIosRemoveCircle size={"20px"} /></button>

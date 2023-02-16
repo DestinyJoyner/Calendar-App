@@ -13,7 +13,6 @@
 .userDates .dateEvents {
     margin-top: 5%;
     display: grid;
-    grid-auto-rows: 35px;
     border: 1px solid black;
     width: 80%;
     height: 20vh;
