@@ -20,7 +20,6 @@ function RouteComponent() {
                     <Route path = "new" element={<New />} />
                     <Route path = ":id" element = {<Show />} />
                 </Route>
-                
                 {bonus ? <Route path ="bonus" element = {<Bonus />} /> : <></>}
             </Route>
             <Route path="*" element={<Error />} />

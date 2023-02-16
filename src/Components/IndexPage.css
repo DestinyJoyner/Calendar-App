@@ -56,8 +56,23 @@
     font-size: 26px;
     border-bottom: aqua solid .5px;
     border-bottom-style:ridge;
-    padding-bottom: 4%;
+    padding-bottom: 2%;
+    text-align: center;
+    width: fit-content;
+    
 }
+
+.index-list h3 button {
+    all: unset;
+    width: fit-content;
+    font-size: 28px;   
+}
+
+.index-list h3 button:hover {
+    cursor: pointer;
+    color: aqua;
+}
+
 
 .index-list a {
     color: rgb(5, 227, 227);
@@ -70,8 +85,12 @@
     text-decoration: underline;
 }
 
-.index-list button {
+.index-list button.index-list-delete {
     all: unset;
+}
+
+.index-list button.index-list-delete:hover {
+    cursor: pointer;
 }
 
 .index-list .no-schedule {
