@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { VscGithub } from "react-icons/vsc"
 import { GrLinkedin } from "react-icons/gr"
 import { TfiEmail } from "react-icons/tfi"
@@ -9,7 +10,8 @@ function Footer() {
         <section className="squares">
         <div>
           <span className="square1 button-style">
-            <span><BsFillCalendar2WeekFill size={"30px"} color={"aqua"} /></span>
+            <span>
+              <Link to="/about"><BsFillCalendar2WeekFill size={"30px"} color={"aqua"} /></Link></span>
           </span>
         </div>
         <div>
