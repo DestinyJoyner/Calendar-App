@@ -6,7 +6,7 @@
 
 [Backend Repo](https://github.com/DestinyJoyner/Pern-Portfolio-Backend) 
 
-This is a React application that allows the user to create an account, login and have the option to add, update, view, and or delete an event to their unique calendar. The frontend uses various React libraries (axios, react-router-dom, react-icons, react-words, react-token-auth, react-uuid, use-sound). No additional CSS libraries are needed to run this application.  The user authentication is coded in the backend (Express, and Postgres database) using JSON Web Tokens (JWT), and Bcrypt.
+This is a React application that allows the user to create an account, login and have the option to add, update, view, and or delete an event to their unique calendar. The frontend uses various React libraries (axios, react-router-dom, react-icons, react-words, react-token-auth, react-uuid, use-sound). No additional CSS libraries are needed to run this application.  The user authentication is coded in the backend (Express, and Postgres database) using JSON Web Tokens (JWT), Bcrypt and Express-Validator.
 
 <img src="/public/readme-screenshot.png" alt="screenshot"  width="500"/>
 
