@@ -1,6 +1,6 @@
 #Destiny Front End Pern-Portfolio Project
 
-[Deployed Calendar Application](https://destiny-calandar-project.netlify.app/)
+[Deployed Calendar Application](https://destiny-calendar-project.netlify.app/)
 
 [Deployed Backend](https://pern-portfolio-calendar-app.onrender.com/)&emsp; &emsp;
 [Backend Repo](https://github.com/DestinyJoyner/Pern-Portfolio-Backend)
