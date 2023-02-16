@@ -13,6 +13,7 @@ This is a React application that allows the user to create an account, login and
 (when registering, be sure to type your password carefully, as it will be stored as is the first time you register for an account)
 
 <h2>Instructions for Cloning</h2>
+
 - You will need to also clone down the backend repo (LINK ABOVE) to run the application locally
 
 - Once cloned, run the `npm i` command and then `npm start`
