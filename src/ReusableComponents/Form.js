@@ -16,6 +16,7 @@ function Form({stateVar, setFunction, buttonToggle, formPage}) {
         important: checked,
         user_id: user.userId
     })
+    const [allEvents, setAllEvents] = useState([])
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -38,7 +39,7 @@ function Form({stateVar, setFunction, buttonToggle, formPage}) {
                         setFunction([data])
                     }
                     else{
-                        setFunction([...stateVar, data])
+                        setFunction([...allEvents, data])
                     }
                     
                     setChecked(false)
@@ -66,6 +67,18 @@ function Form({stateVar, setFunction, buttonToggle, formPage}) {
             })
             .catch(err => console.log(err))
         }
+        axios.get(`${API}/schedule?userId=${user.userId}`,)
+        .then(({data}) =>{
+            if(!data){
+                setAllEvents([])
+            }
+            else{
+                setAllEvents(data)
+            }   
+        } 
+        )
+        .catch(err => console.log(err))
+
     },[id])
 
 
