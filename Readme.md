@@ -12,10 +12,13 @@ This is a React application that allows the user to create an account, login and
 
 <h2>Instructions for Cloning</h2>
 -You will need to also clone down the  [Backend Repo](https://github.com/DestinyJoyner/Pern-Portfolio-Backend) to run the application locally
+
 -Once cloned, run the `npm i` command and then `npm start`
+
 -You will need to create an .env file and set the `REACT_APP_API_URL` key to the local host port you will be running on your backend (SEE BACKEND REPO README ABOVE) 
 
-##User Stories
+
+<h2>User Stories</h2>
 - As a user, I can register for an account on the App
 - As a user, I can successfully login to the application using the username and password I registered with
 - As a user, I can see error messages if my login/registration values are incorrect
