@@ -36,6 +36,8 @@ function Provider({children}) {
     const [deleteModal, setDeleteModal] = useState(false)
     // state to store id value of event to be deleted
     const [deleteModalId, setDeleteModalId] = useState("")
+    // declare state to unlock bonus route
+    const [bonus, setBonus] = useState(false)
 
     // declare default header value to be included in all axios calls (token from localStorage(temporary use))
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -79,6 +81,8 @@ function Provider({children}) {
         setDeleteModalId,
         token,
         setToken,
+        bonus,
+        setBonus,
 
        }}>
         <Nav />

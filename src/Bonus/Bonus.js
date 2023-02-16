@@ -10,8 +10,10 @@ function Bonus() {
     const [word, setWord] = useState([])
     const [hint, setHint] = useState({
         length: "",
-        definition: ""
+        hint: ""
     })
+    const [newGame, setNewGame] = useState(false)
+    
     
     
     
@@ -30,7 +32,7 @@ function Bonus() {
                letterIndex.push(index)
             }
         })
-        console.log(refElement.current.children[letterIndex[0]])
+        // console.log(refElement.current.children[letterIndex[0]])
         if(letterIndex.length){
             letterIndex.forEach(el => {
                 refElement.current.children[el].classList.remove('hidden')    
@@ -38,26 +40,35 @@ function Bonus() {
         }
     }
 
-    // dictionary https://dictionaryapi.dev/
+    // https://www.datamuse.com/api/
 
     useEffect(() => {
         const convertWord = randomWord({exactly:1})[0].toLowerCase()
         console.log(convertWord)
-        setWord(convertWord.split(''))
+        // setWord(convertWord.split(''))
         const newAxios = axios.create()
         delete newAxios.defaults.headers.common['Authorization']
-        newAxios.get(`https://dictionaryapi.dev/api/v2/entries/en/${convertWord}`)
-        .then(({data}) => setHint({
-            length: convertWord.length,
-            definition: data.meanings[0].definitions.definition
-        }))
-    }, [])
+        newAxios.get(`https://api.datamuse.com/words?ml=${convertWord}&max=3`)
+        .then(({data}) => {
+            let words =""
+            data.forEach((word, index) => 
+                words += `${word.word}, `     
+            )
+            setWord(convertWord.split(''))
+            setHint({
+                length: convertWord.length,
+                hint : words
+            })   
+        })
+        .catch(err => console.log(err))
+    }, [newGame])
 
     return (
         <div className="bonus center">
+            <h1>Can You Guess The Word?</h1>
             <section className="bonus-hint">
                 <span>Letters: {hint.length}</span>
-                <span>Meaning: {hint.definition}</span>
+                <span>Hint: {hint.hint}</span>
             </section>
             <section
             ref={refElement} 
@@ -81,6 +92,12 @@ function Bonus() {
                     })
                 }
             </section>
+
+            <button 
+            className="bonus-button"
+            onClick={() =>setNewGame(!newGame)}>
+                New Game
+            </button>
         </div>
     );
 }

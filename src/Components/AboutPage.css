@@ -60,6 +60,21 @@
     box-shadow: 0 0 1vw 0.4vw rgb(223, 53, 81);
 }
 
+.about .unlock-bonus {
+    all: unset;
+    position: absolute;
+    left: 21%;
+    top: 64%;
+}
+
+.about .unlock-bonus:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.about .unlock-bonus img {
+    height: 60px;
+}
+
 .dark .about-info {
     color: #F9FBFF;
     text-shadow:0px 0px 4px rgb(3, 3, 23);

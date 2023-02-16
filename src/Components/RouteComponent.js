@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom"
+import { useContextProvider } from "./Provider";
 import Home from "../Pages/Home";
 import Index from "../Pages/Index";
 import Show from "../Pages/Show";
@@ -7,8 +8,8 @@ import About from "../Pages/About"
 import Error from "../Pages/Error";
 import Bonus from "../Bonus/Bonus";
 
-
 function RouteComponent() {
+    const { bonus } = useContextProvider()
     return (
         <Routes>
             <Route path = "/">
@@ -19,7 +20,8 @@ function RouteComponent() {
                     <Route path = "new" element={<New />} />
                     <Route path = ":id" element = {<Show />} />
                 </Route>
-                <Route path ="bonus" element = {<Bonus />} />
+                
+                {bonus ? <Route path ="bonus" element = {<Bonus />} /> : <></>}
             </Route>
             <Route path="*" element={<Error />} />
         </Routes>
